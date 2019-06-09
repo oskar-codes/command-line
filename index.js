@@ -58,8 +58,13 @@ log.innerHTML +=
   } else if (commands[0] == "clear") {
 log.innerHTML = "";
   } else if (commands[0] == "print") {
+if (commands[1]) {
 log.innerHTML +=
 '<p style="color: ' + color + '">' + parameters + "</p><br>";
+} else {
+  log.innerHTML +=
+'<p style="color: red">Error: no text to print.</p><br>';
+}
   } else if (commands[0] == "color") {
 if (commands[1]) {
       color = parameters;
@@ -93,7 +98,7 @@ log.innerHTML +=
 log.innerHTML +=
 '<p style="color: red">Unknown command. Type help for command reference.</p><br>';
   }
-window.scrollBy(0,100000)
+window.scrollBy(0,100000);
 }
 $("#input").keydown(function(e) {
 if (e.keyCode == 13) {
