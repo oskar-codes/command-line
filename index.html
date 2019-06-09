@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Command line</title>
+    <style>
+      body {
+        background-color: #000;
+      }
+
+      p, input {
+        font-family: 'Roboto Mono', monospace;
+        color: #22ff11;
+        display: inline;
+        font-size: 17px;
+      }
+
+      input {
+        background-color: #000;
+        width: 92%;
+        border: none;
+        caret-color: #22ff11;
+      }
+
+      .input-container {
+        position: fixed;
+        bottom: 0%;
+        width: 100%;
+      }
+
+      .log {
+        margin-bottom: 10px;
+        z-index: -5;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        margin-bottom: 40px;
+      }
+    </style>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="log"></div>
+    <div class="input-container">
+      <p style="background-color: black; padding-right:20px; padding-top:10px; padding-bottom:10px;">></p>
+      <input tabindex="0" id="input"></input>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
