@@ -93,7 +93,7 @@ log.innerHTML +=
 log.innerHTML +=
 '<p style="color: red">Unknown command. Type help for command reference.</p><br>';
   }
-/*window.scrollBy(0,100000)*/
+window.scrollBy(0,100000)
 }
 $("#input").keydown(function(e) {
 if (e.keyCode == 13) {
