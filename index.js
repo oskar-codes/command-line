@@ -17,9 +17,9 @@ log.innerHTML +=
 log.innerHTML += "<p style='color: " + color + "'>This console was made by ZOSK, a young amateur web and game developer. It was originally made in Codepen, and then moved to Github. That's why a lot of commands have to do with Codepen.<br>Check out my Twitter account <a style='color: "+ color +";' href='https://twitter.com/ZOSK17'>here</a>.</p><br>";
   } else if (commands[0] == "codepen") {
 if (commands[2]) {
-window.open("https://codepen.io/ZOSK/" + encodeURI(commands[2]) + "/" + encodeURI(commands[1]));
+window.open("https://codepen.io/ZOSK/" + encodeURIComponent(commands[2]) + "/" + encodeURIComponent(commands[1]));
     } else {
-window.open("https://codepen.io/ZOSK/pen/" + encodeURI(commands[1]));
+window.open("https://codepen.io/ZOSK/pen/" + encodeURIComponent(commands[1]));
     }
   } else if (commands[0] == "codepenuser") {
 window.open("https://codepen.io/" + parameters) + "/";
@@ -27,7 +27,7 @@ window.open("https://codepen.io/" + parameters) + "/";
 if (commands[1]) {
 window.open(
 "https://codepen.io/search/pens?q=" +
-          encodeURI(parameters) +
+          encodeURIComponent(parameters) +
 "&page=1&order=popularity&depth=everything"
       );
     } else {
@@ -43,14 +43,14 @@ log.innerHTML +=
     }
   } else if (commands[0] == "google") {
 if (commands[1]) {
-window.open("https://google.com/search?q=" + encodeURI(parameters));
+window.open("https://google.com/search?q=" + encodeURIComponent(parameters));
     } else {
 log.innerHTML +=
 "<p style='color: red'>Error: No query specified.</p><br>";
     }
   } else if (commands[0] == "youtube") {
 if (commands[1]) {
-window.open("https://youtube.com/search?q=" + encodeURI(parameters));
+window.open("https://youtube.com/search?q=" + encodeURIComponent(parameters));
     } else {
 log.innerHTML +=
 "<p style='color: red'>Error: No query specified.</p><br>";
