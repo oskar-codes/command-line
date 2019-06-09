@@ -113,7 +113,7 @@ function submit() {
       var result = eval(parameters);
       if (result) {
         log.innerHTML +=
-          '<p style="color: ' + color + '">' + result + "</p><br>";
+          '<p style="color: ' + color + '">Return value: ' + result + "</p><br>";
       }
       log.innerHTML +=
         '<p style="color: ' +
