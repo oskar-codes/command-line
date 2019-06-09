@@ -16,13 +16,22 @@ log.innerHTML +=
   } else if (commands[0] == "info") {
 log.innerHTML += "<p style='color: " + color + "'>This console was made by ZOSK, a young amateur web and game developer. It was originally made in Codepen, and then moved to Github. That's why a lot of commands have to do with Codepen.<br>Check out my Twitter account <a style='color: "+ color +";' href='https://twitter.com/ZOSK17'>here</a>.</p><br>";
   } else if (commands[0] == "codepen") {
+if (commands[1]) {
 if (commands[2]) {
 window.open("https://codepen.io/ZOSK/" + encodeURIComponent(commands[2]) + "/" + encodeURIComponent(commands[1]));
     } else {
 window.open("https://codepen.io/ZOSK/pen/" + encodeURIComponent(commands[1]));
     }
+} else {
+      window.open("https://codepen.io");
+}
   } else if (commands[0] == "codepenuser") {
+if (commands[1]) {
 window.open("https://codepen.io/" + parameters) + "/";
+} else {
+log.innerHTML +=
+"<p style='color: red'>Error: No user specified.</p><br>";
+}
   } else if (commands[0] == "codepensearch") {
 if (commands[1]) {
 window.open(
