@@ -2,7 +2,7 @@ var input = document.querySelector("#input");
 var log = document.querySelector(".log");
 var color = "#22ff11";
 log.innerHTML =
-  "<p>Welcome to this little command line ! Start by typing help.</p><br>";
+  "<p>Welcome to this little command line ! Start by typing help</p><br>";
 
 function submit() {
   var command = input.value;
@@ -202,7 +202,7 @@ function formatUrl(url){
 }
 
 function getUrlInfo(input_url) {
-  return $.get( "https://EmbedAPI.com/api/embed", { url: input_url, key: "mRWoAB6R2TUGp3zp4nSLOi63FDCkd7OJduTe9aPR" }, function( data ) {console.log(data);} );
+  $.get( "https://EmbedAPI.com/api/embed", { url: input_url, key: "mRWoAB6R2TUGp3zp4nSLOi63FDCkd7OJduTe9aPR" }, function( data ) { return data } );
 }
 
 window.onload = function () {
