@@ -33,7 +33,7 @@ function submit() {
           <td>codepensearch [query]</td><td>searches Codepen for your query</td>
          </tr>
          <tr>
-          <td>url [url]</td><td>browses to the specified url</td>
+          <td>url [url]</td><td>browses to the specified url. This automatically appends https:// if not in url.</td>
          </tr>
          <tr>
           <td>cache [url] [view (full,text,source)]</td><td>browses to the cache of the specified url, and on the specified view.</td>
@@ -186,7 +186,7 @@ function formatUrl(url){
   var httpsString = 'https://';
 
   if (url.substr(0, httpString.length) !== httpString && url.substr(0, httpsString.length) !== httpsString) {
-    url = httpString + url;
+    url = httpsString + url;
   }
   return url;
 }
