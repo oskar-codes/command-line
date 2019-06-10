@@ -24,7 +24,7 @@ function submit() {
           <td>clear</td><td>clears the console</td>
          </tr>
          <tr>
-          <td>codepen [pen id] [view (pen,details,full,debug]</td><td>browses to codepen, at the specified pen id, with the specified view</td>
+          <td>codepen [pen id] [view (pen,details,full,debug)]</td><td>browses to codepen, at the specified pen id, with the specified view</td>
          </tr>
          <tr>
           <td>codepenuser [user]</td><td>browses to the specified user's Codepen profile</td>
