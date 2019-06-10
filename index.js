@@ -202,7 +202,7 @@ function formatUrl(url){
 }
 
 function getUrlInfo(input_url) {
-  $.get( "https://EmbedAPI.com/api/embed", { url: input_url, key: "mRWoAB6R2TUGp3zp4nSLOi63FDCkd7OJduTe9aPR" }, function( data ) { var rdata = data } );
+  $.get( "https://embedapi.com/api/embed", { url: "https://youtube.com/", key: "mRWoAB6R2TUGp3zp4nSLOi63FDCkd7OJduTe9aPR" }, function( data ) { var rdata = data } );
   return rdata;
 }
 
