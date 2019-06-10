@@ -183,14 +183,14 @@ function replaceSmartQuotes(str) {
 }
 
 $("#input").keydown(function (e) {
-  input.value = replaceSmartQuotes(input.value);
-});
-
-/*$("#input").keydown(function (e) {
   if (e.keyCode == 13) {
     submit();
   }
-});*/
+});
+
+$("#input").keydown(function (e) {
+  input.value = replaceSmartQuotes(input.value);
+});
 
 window.onload = function () {
   input.focus();
