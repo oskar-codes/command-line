@@ -75,7 +75,7 @@ function submit() {
     }
   } else if (commands[0] == "codepenuser" || commands[0] == "cu") {
     if (commands[1]) {
-      window.open("https://codepen.io/" + parameters) + "/";
+      window.open("https://codepen.io/" + parameters + "/");
     } else {
       log.innerHTML +=
         "<p style='color: red'>Error: No user specified.</p><br>";
@@ -166,8 +166,8 @@ function submit() {
     if (commands[1]) {
       if (commands[1] == "noreturn" || commands[1] == "nr" || commands[1] == "nor") {
         if (commands[2]) {
-          parameters = command.substr(command.indexOf(commands[1]) + 1);
-          var result = eval(parameters);
+          var parameters2 = command.substr(command.indexOf(commands[1]) + 1);
+          var result = eval(parameters2);
         } else {
           log.innerHTML +=
           '<p style="color: red">Error: No JavaScript code to execute.</p><br>';
@@ -176,7 +176,7 @@ function submit() {
         var result = eval(parameters);
         if (result) {
             log.innerHTML +=
-            '<p style="color: ' + color + '">Return value: ' + result + "</p><br>";
+            '<p style="color: ' + color + '">Return value: ' + result + '</p><br>';
         }
       }
       log.innerHTML +=
@@ -189,7 +189,7 @@ function submit() {
     }
   } else {
     log.innerHTML +=
-      '<p style="color: red">Error: Unknown command ('+ commands[0] +'). Type help for command reference.</p><br>';
+      '<p style="color: red">Error: Unknown command ('+ command +'). Type help for command reference.</p><br>';
   }
   }
   window.scrollBy(0, 100000);
