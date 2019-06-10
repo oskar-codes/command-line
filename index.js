@@ -110,6 +110,15 @@ function submit() {
       log.innerHTML +=
         "<p style='color: red'>Error: No url specified.</p><br>";
     }
+  } else if (commands[0] == "urlinfo") {
+    if (commands[1]) {
+      log.innerHTML += "<p>Information about " +encodeURI(formatUrl(commands[1]))+"<br>Description: "
+        + getUrlInfo(encodeURI(formatUrl(commands[1])))[0] + "<br>Keywords: "
+        + getUrlInfo(encodeURI(formatUrl(commands[1])))[1]; + "</p><br>"
+    } else {
+      log.innerHTML +=
+        "<p style='color: red'>Error: No url specified.</p><br>";
+    }
   } else if (commands[0] == "google") {
     if (commands[1]) {
       window.open("https://google.com/search?q=" + encodeURIComponent(parameters));
@@ -191,16 +200,20 @@ function formatUrl(url){
   return url;
 }
 
-/*function replaceSmartQuotes(str) {
-    var retVal = str;
-    retVal = retVal.replaceAll( "[\u2018\u2019\u201A\u201B\u2032\u2035]", "'" );
-    retVal = retVal.replaceAll("[\u201C\u201D\u201E\u201F\u2033\u2036]","\"");
-    return retVal;
+function getUrlInfo(url) {
+  $.ajax({
+    url: 'https://cors-anywhere.herokuapp.com/' + $('input').val()
+  }).then(function(data) {
+    var html = $(data);
+    return [getMetaContent(html, 'description') || 'no description found',
+            getMetaContent(html, 'keywords') || 'no keywords found';]
+  });
 }
 
-$("#input").keydown(function (e) {
-  input.value = replaceSmartQuotes(input.value);
-});*/
+function getMetaContent(html, name) {
+  return html.filter(
+  (index, tag) => tag && tag.name && tag.name == name).attr('content');
+}
 
 window.onload = function () {
   input.focus();
