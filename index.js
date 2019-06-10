@@ -202,7 +202,8 @@ function formatUrl(url){
 }
 
 function getUrlInfo(input_url) {
-  $.get( "https://EmbedAPI.com/api/embed", { url: input_url, key: "mRWoAB6R2TUGp3zp4nSLOi63FDCkd7OJduTe9aPR" }, function( data ) { return data } );
+  $.get( "https://EmbedAPI.com/api/embed", { url: input_url, key: "mRWoAB6R2TUGp3zp4nSLOi63FDCkd7OJduTe9aPR" }, function( data ) { var rdata = data } );
+  return rdata;
 }
 
 window.onload = function () {
