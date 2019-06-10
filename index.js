@@ -112,7 +112,7 @@ function submit() {
     }
   } else if (commands[0] == "urlinfo") {
     if (commands[1]) {
-      log.innerHTML += "<p style='color: " + color + "'>Information about " + encodeURI(formatUrl(commands[1])) + "<br>" + getUrlInfo(commands[1]) + "</p><br>"
+      log.innerHTML += '<p style="color: ' + color + '">Information about ' + encodeURI(formatUrl(commands[1])) + '<br>' + getUrlInfo(commands[1]) + '</p><br>'
     } else {
       log.innerHTML +=
         "<p style='color: red'>Error: No url specified.</p><br>";
@@ -199,7 +199,8 @@ function formatUrl(url){
 }
 
 function getUrlInfo(input_url) {
-  $.get( "https://EmbedAPI.com/api/embed", { url: input_url, key: "mRWoAB6R2TUGp3zp4nSLOi63FDCkd7OJduTe9aPR" },function( data ) {return data;} );
+  return true;
+  // $.get( "https://EmbedAPI.com/api/embed", { url: input_url, key: "mRWoAB6R2TUGp3zp4nSLOi63FDCkd7OJduTe9aPR" },function( data ) {return data;} );
 }
 
 window.onload = function () {
