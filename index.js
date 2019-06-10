@@ -15,7 +15,7 @@ function submit() {
       `<p style="color: `+ color +`;">Command list:</p><br>
        <table style="color: ` + color + `;">
          <tr>
-          <td>help</td><td>shows the help panel</td>
+          <td>help</td><td>shows this help panel</td>
          </tr>
          <tr>
           <td>info</td><td>shows information about this console</td>
