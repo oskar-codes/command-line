@@ -90,7 +90,7 @@ function submit() {
     }
   } else if (commands[0] == "url") {
     if (commands[1]) {
-      window.open(commands[1]);
+      window.open(formatUrl(commands[1]));
     } else {
       log.innerHTML +=
         "<p style='color: red'>Error: No url specified.</p><br>";
@@ -98,13 +98,13 @@ function submit() {
   } else if (commands[0] == "cache") {
     if (commands[1]) {
       if (commands[2] == "full") {
-        window.open("http://webcache.googleusercontent.com/search?q=cache:" + commands[1] + "&safe=active&client=safari&hl=en-ch&prmd=ivn&strip=0&vwsrc=0");
+        window.open("http://webcache.googleusercontent.com/search?q=cache:" + encodeURI(formatUrl(commands[1])) + "&safe=active&client=safari&hl=en-ch&prmd=ivn&strip=0&vwsrc=0");
       } else if (commands[2] == "text") {
-        window.open("http://webcache.googleusercontent.com/search?q=cache:" + commands[1] + "&safe=active&client=safari&hl=en-ch&prmd=ivn&strip=1&vwsrc=0");
+        window.open("http://webcache.googleusercontent.com/search?q=cache:" + encodeURI(formatUrl(commands[1])) + "&safe=active&client=safari&hl=en-ch&prmd=ivn&strip=1&vwsrc=0");
       } else if (commands[2] == "source") {
-        window.open("http://webcache.googleusercontent.com/search?q=cache:" + commands[1] + "&safe=active&client=safari&hl=en-ch&prmd=ivn&strip=0&vwsrc=1");
+        window.open("http://webcache.googleusercontent.com/search?q=cache:" + encodeURI(formatUrl(commands[1])) + "&safe=active&client=safari&hl=en-ch&prmd=ivn&strip=0&vwsrc=1");
       } else {
-        window.open("http://webcache.googleusercontent.com/search?q=cache:" + commands[1] + "&safe=active&client=safari&hl=en-ch&prmd=ivn&strip=0&vwsrc=0");
+        window.open("http://webcache.googleusercontent.com/search?q=cache:" + encodeURI(formatUrl(commands[1])) + "&safe=active&client=safari&hl=en-ch&prmd=ivn&strip=0&vwsrc=0");
       }
     } else {
       log.innerHTML +=
@@ -180,6 +180,16 @@ $("#input").keydown(function (e) {
     submit();
   }
 });
+
+function formatUrl(url){
+  var httpString = 'http://';
+  var httpsString = 'https://';
+
+  if (url.substr(0, httpString.length) !== httpString && url.substr(0, httpsString.length) !== httpsString) {
+    url = httpString + url;
+  }
+  return url;
+}
 
 /*function replaceSmartQuotes(str) {
     var retVal = str;
