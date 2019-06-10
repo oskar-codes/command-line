@@ -165,11 +165,11 @@ function submit() {
         '">JavaScript code successfully executed.</p><br>';
     } else
       log.innerHTML +=
-      '<p style="color: red">Error: no JavaScript code to execute.</p><br>';
+      '<p style="color: red">Error: No JavaScript code to execute.</p><br>';
     end;
   } else {
     log.innerHTML +=
-      '<p style="color: red">Unknown command ('+ commands[0] +'). Type help for command reference.</p><br>';
+      '<p style="color: red">Error: Unknown command ('+ commands[0] +'). Type help for command reference.</p><br>';
   }
   }
   window.scrollBy(0, 100000);
