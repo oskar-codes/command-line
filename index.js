@@ -11,9 +11,52 @@ function submit() {
   var parameters = command.substr(command.indexOf(" ") + 1);
   if (commands[0] == "help") {
     log.innerHTML +=
-      '<p style="color: ' +
-      color +
-      "\">Command list:<br>help: shows this help panel.<br>info: shows information about this console.<br>clear: clears the console<br>codepen [pen id] [view (pen,details,full,debug)]: browses to codepen, at the specified pen id, with the specified view.<br>codepenuser [user]: browses to the specified user's codepen profile.<br>codepensearch [query]: searches Codepen for your query.<br>url [url]: browses to the specified url.<br>cache [url] [view (full,text,source)]: browses to the cache of the specified url, and on the specified view.<br>google [query]: searches Google for your query.<br>youtube [query]: searches YouTube for your query.<br>github [query]: searches Github for your query.<br>print [text]: prints text to the console.<br>color [value]: sets the color of the console's text, or resets it if no color is specified.<br>js [code]: executes some JavaScript code.<br></p>";
+      `<p style="color: `+ color +`;">Command list:</p><br>
+       <table style="color: ` + color + `;">
+         <tr>
+          <td>help:</td><td>shows this help panel</td>
+         </tr>
+         <tr>
+          <td>info:</td><td>shows information about this console</td>
+         </tr>
+         <tr>
+          <td>clear:</td><td>clears the console</td>
+         </tr>
+         <tr>
+          <td>codepen [pen id] [view (pen,details,full,debug]</td><td>browses to codepen, at the specified pen id, with the specified view</td>
+         </tr>
+         <tr>
+          <td>codepenuser [user]</td><td>browses to the specified user's Codepen profile</td>
+         </tr>
+         <tr>
+          <td>codepensearch [query]</td><td>searches Codepen for your query</td>
+         </tr>
+         <tr>
+          <td>url [url]</td><td>browses to the specified url</td>
+         </tr>
+         <tr>
+          <td>cache [url] [view (full,text,source)]</td><td>browses to the cache of the specified url, and on the specified view.</td>
+         </tr>
+         <tr>
+          <td>google [query]</td><td>searches Google for your query</td>
+         </tr>
+         <tr>
+          <td>youtube [query]</td><td>searches YouTube for your query</td>
+         </tr>
+         <tr>
+          <td>github [query]</td><td>searches Github for your query</td>
+         </tr>
+         <tr>
+          <td>print [text]</td><td>prints text to the console</td>
+         </tr>
+         <tr>
+          <td>color [value]</td><td>sets the color of the console's text, or resets it if no color is specified</td>
+         </tr>
+         <tr>
+          <td>js [code]</td><td>executes some JavaScript code</td>
+         </tr>
+       </table>
+      `
   } else if (commands[0] == "info") {
     log.innerHTML += "<p style='color: " + color + "'>This console was made by ZOSK, a young amateur web and game developer. It was originally made in Codepen, and then moved to Github. That's why a lot of commands have to do with Codepen.<br>Check out my Twitter account <a style='color: " + color + ";' href='https://twitter.com/ZOSK17'>here</a>.</p><br>";
   } else if (commands[0] == "codepen") {
