@@ -57,7 +57,7 @@ function submit() {
           <td>color [value]</td><td>sets the color of the console's text, or resets it if no color is specified</td>
          </tr>
          <tr>
-          <td>js [code]</td><td>executes some JavaScript code</td>
+          <td>js [code]</td><td>executes some JavaScript code. By default, the return value of the code is printed to the console, but that can be prevented by adding noreturn as the first parameter of the command</td>
          </tr>
        </table>
       `
@@ -164,10 +164,20 @@ function submit() {
     }
   } else if (commands[0] == "js" || commands[0] == "javascript") {
     if (commands[1]) {
-      var result = eval(parameters);
-      if (result) {
-        log.innerHTML +=
-          '<p style="color: ' + color + '">Return value: ' + result + "</p><br>";
+      if (commands[1]=="noreturn" || commands[1]=="nr" || commands[1]=="nor") {
+        if (commands[2]) {
+          parameters = command.substr(command.indexOf(commands[1]) + 1);
+          var result = eval(parameters);
+        } else {
+          log.innerHTML +=
+          '<p style="color: red">Error: No JavaScript code to execute.</p><br>';
+        }
+      } else
+        var result = eval(parameters);
+        if (result) {
+            log.innerHTML +=
+            '<p style="color: ' + color + '">Return value: ' + result + "</p><br>";
+        }
       }
       log.innerHTML +=
         '<p style="color: ' +
@@ -176,7 +186,7 @@ function submit() {
     } else
       log.innerHTML +=
       '<p style="color: red">Error: No JavaScript code to execute.</p><br>';
-    end;
+    }
   } else {
     log.innerHTML +=
       '<p style="color: red">Error: Unknown command ('+ commands[0] +'). Type help for command reference.</p><br>';
