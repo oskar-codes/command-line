@@ -164,7 +164,7 @@ function submit() {
     }
   } else if (commands[0] == "js" || commands[0] == "javascript") {
     if (commands[1]) {
-      if (commands[1]=="noreturn" || commands[1]=="nr" || commands[1]=="nor") {
+      if (commands[1] == "noreturn" || commands[1] == "nr" || commands[1] == "nor") {
         if (commands[2]) {
           parameters = command.substr(command.indexOf(commands[1]) + 1);
           var result = eval(parameters);
@@ -172,7 +172,7 @@ function submit() {
           log.innerHTML +=
           '<p style="color: red">Error: No JavaScript code to execute.</p><br>';
         }
-      } else
+      } else {
         var result = eval(parameters);
         if (result) {
             log.innerHTML +=
@@ -183,7 +183,7 @@ function submit() {
         '<p style="color: ' +
         color +
         '">JavaScript code successfully executed.</p><br>';
-    } else
+    } else {
       log.innerHTML +=
       '<p style="color: red">Error: No JavaScript code to execute.</p><br>';
     }
