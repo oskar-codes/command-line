@@ -112,7 +112,7 @@ function submit() {
     }
   } else if (commands[0] == "urlinfo") {
     if (commands[1]) {
-      log.innerHTML += "<p style="color: ' + color + '">Information about " + encodeURI(formatUrl(commands[1])) + "<br>" + getUrlInfo(commands[1]) + "</p><br>"
+      log.innerHTML += "<p style='color: " + color + "'>Information about " + encodeURI(formatUrl(commands[1])) + "<br>" + getUrlInfo(commands[1]) + "</p><br>"
     } else {
       log.innerHTML +=
         "<p style='color: red'>Error: No url specified.</p><br>";
