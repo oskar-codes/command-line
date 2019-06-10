@@ -15,7 +15,7 @@ function submit() {
       `<p style="color: `+ color +`;">Command list:</p><br>
        <table style="color: ` + color + `;">
          <tr>
-          <td>help</td><td>shows this help panel</td>
+          <td>help</td><td>shows the help panel</td>
          </tr>
          <tr>
           <td>info</td><td>shows information about this console</td>
@@ -167,7 +167,6 @@ function submit() {
       if (commands[1] == "noreturn" || commands[1] == "nr" || commands[1] == "nor") {
         if (commands[2]) {
           var parameters2 = command.substr(command.indexOf(commands[1]) + 2);
-          alert(parameters2);
           eval(parameters2);
           log.innerHTML +=
           '<p style="color: ' +
