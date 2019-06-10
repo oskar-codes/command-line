@@ -166,7 +166,8 @@ function submit() {
     if (commands[1]) {
       if (commands[1] == "noreturn" || commands[1] == "nr" || commands[1] == "nor") {
         if (commands[2]) {
-          var parameters2 = command.substr(command.indexOf("nr") + 1);
+          var parameters2 = command.substr(command.indexOf(commands[1]) + 2);
+          alert(parameters2);
           eval(parameters2);
           log.innerHTML +=
           '<p style="color: ' +
@@ -181,6 +182,9 @@ function submit() {
         if (result) {
             log.innerHTML +=
             '<p style="color: ' + color + '">Return value: ' + result + '</p><br>';
+        } else {
+          log.innerHTML +=
+            '<p style="color: ' + color + '">No return value.</p><br>';
         }
         log.innerHTML +=
         '<p style="color: ' +
