@@ -173,7 +173,7 @@ function submit() {
           } catch (e) {
             if (e instanceof SyntaxError) {
               syntaxError = true;
-              log.innerHTML += "<p>" + e.message + "</p><br>"
+              log.innerHTML += '<p style="color: red;">Syntax error: ' + e.message + '</p><br>'
             }
           }
           if (syntaxError == false) {
@@ -192,7 +192,7 @@ function submit() {
         } catch (e) {
           if (e instanceof SyntaxError) {
             syntaxError = true;
-            log.innerHTML += "<p>" + e.message + "</p><br>"
+            log.innerHTML += '<p style="color: red;">Syntax error: ' + e.message + '</p><br>'
           }
         }
         if (syntaxError == false) {
