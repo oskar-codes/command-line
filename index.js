@@ -168,7 +168,7 @@ function submit() {
     end;
   } else {
     log.innerHTML +=
-      '<p style="color: red">Unknown command. Type help for command reference.</p><br>';
+      '<p style="color: red">Unknown command ('+ commands[0] +'). Type help for command reference.</p><br>';
   }
   window.scrollBy(0, 100000);
 }
