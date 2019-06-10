@@ -33,10 +33,13 @@ function submit() {
           <td>codepensearch [query]</td><td>searches Codepen for your query</td>
          </tr>
          <tr>
-          <td>url [url]</td><td>browses to the specified url. This automatically appends https:// if not in url.</td>
+          <td>url [url]</td><td>browses to the specified url. This automatically appends https:// if not in url</td>
          </tr>
          <tr>
-          <td>cache [url] [view (full,text,source)]</td><td>browses to the cache of the specified url, and on the specified view.</td>
+          <td>cache [url] [view (full,text,source)]</td><td>browses to the cache of the specified url, and on the specified view</td>
+         </tr>
+         <tr>
+          <td>urlinfo [url]</td><td>gets info about the specified url</td>
          </tr>
          <tr>
           <td>google [query]</td><td>searches Google for your query</td>
@@ -199,8 +202,7 @@ function formatUrl(url){
 }
 
 function getUrlInfo(input_url) {
-  return true;
-  // $.get( "https://EmbedAPI.com/api/embed", { url: input_url, key: "mRWoAB6R2TUGp3zp4nSLOi63FDCkd7OJduTe9aPR" },function( data ) {return data;} );
+  return $.get( "https://EmbedAPI.com/api/embed", { url: input_url, key: "mRWoAB6R2TUGp3zp4nSLOi63FDCkd7OJduTe9aPR" }, function( data ) {console.log(data);} );
 }
 
 window.onload = function () {
