@@ -200,9 +200,9 @@ function formatUrl(url){
   return url;
 }
 
-function getUrlInfo(url) {
+function getUrlInfo(input_url) {
   $.ajax({
-    url: 'https://cors-anywhere.herokuapp.com/' + $('input').val()
+    url: 'https://cors-anywhere.herokuapp.com/' + input_url
   }).then(function(data) {
     var html = $(data);
     return [getMetaContent(html, 'description') || 'no description found',
