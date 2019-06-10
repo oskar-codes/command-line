@@ -10,18 +10,18 @@ function submit() {
   var commands = strToArr(command);
   var parameters = command.substr(command.indexOf(" ") + 1);
   if (commands[0] != "") {
-  if (commands[0] == "help") {
+  if (commands[0] == "help" || commands[0] == "h") {
     log.innerHTML +=
       `<p style="color: `+ color +`;">Command list:</p><br>
        <table style="color: ` + color + `;">
          <tr>
-          <td>help:</td><td>shows this help panel</td>
+          <td>help</td><td>shows this help panel</td>
          </tr>
          <tr>
-          <td>info:</td><td>shows information about this console</td>
+          <td>info</td><td>shows information about this console</td>
          </tr>
          <tr>
-          <td>clear:</td><td>clears the console</td>
+          <td>clear</td><td>clears the console</td>
          </tr>
          <tr>
           <td>codepen [pen id] [view (pen,details,full,debug]</td><td>browses to codepen, at the specified pen id, with the specified view</td>
@@ -61,9 +61,9 @@ function submit() {
          </tr>
        </table>
       `
-  } else if (commands[0] == "info") {
+  } else if (commands[0] == "info" || commands[0] == "i") {
     log.innerHTML += "<p style='color: " + color + "'>This console was made by ZOSK, a young amateur web and game developer. It was originally made in Codepen, and then moved to Github. That's why a lot of commands have to do with Codepen.<br>Check out my Twitter account <a style='color: " + color + ";' href='https://twitter.com/ZOSK17'>here</a>.</p><br>";
-  } else if (commands[0] == "codepen") {
+  } else if (commands[0] == "codepen" || commands[0] == "c") {
     if (commands[1]) {
       if (commands[2]) {
         window.open("https://codepen.io/ZOSK/" + encodeURIComponent(commands[2]) + "/" + encodeURIComponent(commands[1]));
@@ -73,14 +73,14 @@ function submit() {
     } else {
       window.open("https://codepen.io");
     }
-  } else if (commands[0] == "codepenuser") {
+  } else if (commands[0] == "codepenuser" || commands[0] == "cu") {
     if (commands[1]) {
       window.open("https://codepen.io/" + parameters) + "/";
     } else {
       log.innerHTML +=
         "<p style='color: red'>Error: No user specified.</p><br>";
     }
-  } else if (commands[0] == "codepensearch") {
+  } else if (commands[0] == "codepensearch" || commands[0] == "cs") {
     if (commands[1]) {
       window.open(
         "https://codepen.io/search/pens?q=" +
@@ -113,34 +113,34 @@ function submit() {
       log.innerHTML +=
         "<p style='color: red'>Error: No url specified.</p><br>";
     }
-  } else if (commands[0] == "urlinfo") {
+  } else if (commands[0] == "urlinfo" || commands[0] == "urli") {
     if (commands[1]) {
       log.innerHTML += '<p style="color: ' + color + '">Information about ' + encodeURI(formatUrl(commands[1])) + '<br>' + getUrlInfo(commands[1]) + '</p><br>'
     } else {
       log.innerHTML +=
         "<p style='color: red'>Error: No url specified.</p><br>";
     }
-  } else if (commands[0] == "google") {
+  } else if (commands[0] == "google" || commands[0] == "g") {
     if (commands[1]) {
       window.open("https://google.com/search?q=" + encodeURIComponent(parameters));
     } else {
       window.open("https://google.com")
     }
-  } else if (commands[0] == "youtube") {
+  } else if (commands[0] == "youtube" || commands[0] == "yt" || commands[0] == "y") {
     if (commands[1]) {
       window.open("https://youtube.com/search?q=" + encodeURIComponent(parameters));
     } else {
       window.open("https://youtube.com")
     }
-  } else if (commands[0] == "github") {
+  } else if (commands[0] == "github" || commands[0] == "gh") {
     if (commands[1]) {
       window.open("https://github.com/search?q=" + encodeURIComponent(parameters));
     } else {
       window.open("https://github.com")
     }
-  } else if (commands[0] == "clear") {
+  } else if (commands[0] == "clear" || commands[0] == "cl" || commands[0] == "cls") {
     log.innerHTML = "";
-  } else if (commands[0] == "print") {
+  } else if (commands[0] == "print" || commands[0] == "p") {
     if (commands[1]) {
       log.innerHTML +=
         '<p style="color: ' + color + '">' + parameters + "</p><br>";
@@ -148,7 +148,7 @@ function submit() {
       log.innerHTML +=
         '<p style="color: red">Error: no text to print.</p><br>';
     }
-  } else if (commands[0] == "color") {
+  } else if (commands[0] == "color" || commands[0] == "col") {
     if (commands[1]) {
       color = parameters;
       log.innerHTML +=
@@ -162,7 +162,7 @@ function submit() {
       log.innerHTML +=
         '<p style="color: ' + color + '">Color successfully reset.</p><br>';
     }
-  } else if (commands[0] == "js") {
+  } else if (commands[0] == "js" || commands[0] == "javascript") {
     if (commands[1]) {
       var result = eval(parameters);
       if (result) {
