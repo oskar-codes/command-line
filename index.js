@@ -163,32 +163,51 @@ function submit() {
         '<p style="color: ' + color + '">Color successfully reset.</p><br>';
     }
   } else if (commands[0] == "js" || commands[0] == "javascript") {
+    var syntaxError = false;
     if (commands[1]) {
       if (commands[1] == "noreturn" || commands[1] == "nr" || commands[1] == "nor") {
         if (commands[2]) {
           var parameters2 = command.substr(command.indexOf(commands[1]) + 2);
-          eval(parameters2);
-          log.innerHTML +=
-          '<p style="color: ' +
-          color +
-          '">JavaScript code successfully executed.</p><br>';
+          try {
+            eval(parameters2);
+          } catch (e) {
+            if (e instanceof SyntaxError) {
+              syntaxError = true;
+              log.innerHTML += "<p>" + e.message + "</p><br>"
+            }
+          }
+          if (syntaxError == false) {
+            log.innerHTML +=
+            '<p style="color: ' +
+            color +
+            '">JavaScript code successfully executed.</p><br>';
+          }
         } else {
           log.innerHTML +=
           '<p style="color: red">Error: No JavaScript code to execute.</p><br>';
         }
       } else {
-        var result = eval(parameters);
-        if (result) {
-            log.innerHTML +=
-            '<p style="color: ' + color + '">Return value: ' + result + '</p><br>';
-        } else {
-          log.innerHTML +=
-            '<p style="color: ' + color + '">No return value.</p><br>';
+        try {
+          var result = eval(parameters);
+        } catch (e) {
+          if (e instanceof SyntaxError) {
+            syntaxError = true;
+            log.innerHTML += "<p>" + e.message + "</p><br>"
+          }
         }
-        log.innerHTML +=
-        '<p style="color: ' +
-        color +
-        '">JavaScript code successfully executed.</p><br>';
+        if (syntaxError == false) {
+          if (result) {
+              log.innerHTML +=
+              '<p style="color: ' + color + '">Return value: ' + result + '</p><br>';
+          } else {
+            log.innerHTML +=
+              '<p style="color: ' + color + '">No return value.</p><br>';
+          }
+          log.innerHTML +=
+          '<p style="color: ' +
+          color +
+          '">JavaScript code successfully executed.</p><br>';
+        }
       }
     } else {
       log.innerHTML +=
