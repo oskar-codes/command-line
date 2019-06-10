@@ -9,6 +9,7 @@ function submit() {
   input.value = "";
   var commands = strToArr(command);
   var parameters = command.substr(command.indexOf(" ") + 1);
+  if (commands[0] != "") {
   if (commands[0] == "help") {
     log.innerHTML +=
       `<p style="color: `+ color +`;">Command list:</p><br>
@@ -169,6 +170,7 @@ function submit() {
   } else {
     log.innerHTML +=
       '<p style="color: red">Unknown command ('+ commands[0] +'). Type help for command reference.</p><br>';
+  }
   }
   window.scrollBy(0, 100000);
 }
