@@ -2,7 +2,7 @@ var input = document.querySelector("#input");
 var log = document.querySelector(".log");
 var color = "#22ff11";
 log.innerHTML =
-  "<p>Welcome to this little command line ! Start by executing the help command.</p><br>";
+  "<p>Welcome to this little command line ! Start by executing the help command</p><br>";
 
 function submit() {
   var command = input.value;
@@ -130,13 +130,7 @@ function submit() {
   
   } else if (commands[0] == "client") {
     log.innerHTML += '<p style="color: ' + color + ';">Requesting information...</p><br>'
-    //$.getJSON('https://ipinfo.io/json/?callback=', function(data) {
-    $.ajax({
-      dataType: 'jsonp',
-      data: 'id=10',
-      jsonp: 'jsonp_callback',
-      url: 'https://ipinfo.io/json/?callback=?',
-      success: function () {
+    $.getJSON('https://ipinfo.io/json/?callback=?', function(data) {
        log.innerHTML += '<p style="color: ' + color + ';">Calling the API...</p><br>'
        log.innerHTML += `<p style="color: #33ff11;">Client information:</p><br>
        <table style="color: #33ff11;">
@@ -181,8 +175,7 @@ function submit() {
         </tr>
        </table>
        <br>`;
-      }
-    });
+      });
       /* 
       ip, city, region, country, loc, org
       
@@ -193,9 +186,6 @@ function submit() {
       var location = JSON.stringify(data.loc, null, 2);
       var provider = JSON.stringify(data.org, null, 2);
       log.innerHTML += "<p style='color:#33ff11'>" + ip + "<br>" + city + "<br>" + region + "<br>" + country + "<br>" + location + "<br>" + provider + "</p><br>"*/
-
-
-    //});
     log.innerHTML += '<p style="color: ' + color + ';">Information successfully requested.</p><br>'
   } else if (commands[0] == "google" || commands[0] == "g") {
     if (commands[1]) {
