@@ -185,8 +185,8 @@ function submit() {
       var location = JSON.stringify(data.loc, null, 2);
       var provider = JSON.stringify(data.org, null, 2);
       log.innerHTML += "<p style='color:#33ff11'>" + ip + "<br>" + city + "<br>" + region + "<br>" + country + "<br>" + location + "<br>" + provider + "</p><br>"*/
-    log.innerHTML += `<p style="color: #33ff11;">Client information:</p><br>
-       <table style="color: #33ff11;">
+    log.innerHTML += `<p style="color: `+ color +`;">Client information:</p><br>
+       <table style="color: `+ color +`;">
         <tr>
          <td>User agent:</td><td>` + navigator.userAgent + `</td>
         </tr>
