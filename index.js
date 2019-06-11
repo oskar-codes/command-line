@@ -133,17 +133,17 @@ function submit() {
       /* 
         ip, city, region, country, loc, org
       */
-      var ip = JSON.stringify(data.ip, null, 2);
+      /*var ip = JSON.stringify(data.ip, null, 2);
       var city = JSON.stringify(data.city, null, 2);
       var region = JSON.stringify(data.region, null, 2);
       var country = JSON.stringify(data.country, null, 2);
       var location = JSON.stringify(data.loc, null, 2);
       var provider = JSON.stringify(data.org, null, 2);
-      log.innerHTML += "<p style='color:#33ff11'>" + ip + "<br>" + city + "<br>" + region + "<br>" + country + "<br>" + location + "<br>" + provider + "</p><br>"
+      log.innerHTML += "<p style='color:#33ff11'>" + ip + "<br>" + city + "<br>" + region + "<br>" + country + "<br>" + location + "<br>" + provider + "</p><br>"*/
       log.innerHTML += `<p style="color: #33ff11;">Client information:</p><br>
        <table style="color: #33ff11;">
         <tr>
-         <td>IP adress:</td><td>` + ip + `</td>
+         <td>IP adress:</td><td>` + JSON.stringify(data.ip, null, 2) + `</td>
         </tr>
         <tr>
          <td>User agent:</td><td>` + navigator.userAgent + `</td>
@@ -155,19 +155,19 @@ function submit() {
          <td>Platform:</td><td>` + navigator.platform + `</td>
         </tr>
         <tr>
-         <td>City:</td><td>` + city + `</td>
+         <td>City:</td><td>` + JSON.stringify(data.city, null, 2) + `</td>
         </tr>
         <tr>
-         <td>Region:</td><td>` + region + `</td>
+         <td>Region:</td><td>` + JSON.stringify(data.region, null, 2) + `</td>
         </tr>
         <tr>
-         <td>Country:</td><td>` + country + `</td>
+         <td>Country:</td><td>` + JSON.stringify(data.country, null, 2) + `</td>
         </tr>
         <tr>
-         <td>Location:</td><td>` + location + `</td>
+         <td>Location:</td><td>` + JSON.stringify(data.loc, null, 2) + `</td>
         </tr>
         <tr>
-         <td>Network provider:</td><td>` + provider + `</td>
+         <td>Network provider:</td><td>` + JSON.stringify(data.org, null, 2) + `</td>
         </tr>
         <tr>
          <td>Language:</td><td>` + navigator.language + `</td>
@@ -184,6 +184,7 @@ function submit() {
        </table>
        <br>`
     });
+    log.innerHTML += '<p style="color: ' + color + ';">Information successfully requested.</p><br>'
   } else if (commands[0] == "google" || commands[0] == "g") {
     if (commands[1]) {
       window.open("https://google.com/search?q=" + encodeURIComponent(parameters));
