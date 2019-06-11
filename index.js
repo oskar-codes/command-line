@@ -2,7 +2,7 @@ var input = document.querySelector("#input");
 var log = document.querySelector(".log");
 var color = "#22ff11";
 log.innerHTML =
-  "<p>Welcome to this little command line ! Start by typing help</p><br>";
+  "<p>Welcome to this little command line ! Start by typing help.</p><br>";
 
 function submit() {
   var command = input.value;
@@ -130,7 +130,7 @@ function submit() {
   
   } else if (commands[0] == "client") {
     log.innerHTML += '<p style="color: ' + color + ';">Requesting information...</p><br>'
-    $.getJSON('https://ipinfo.io/json', function(data) {
+    $.getJSON('https://ipinfo.io/json/?callback=', function(data) {
       log.innerHTML += '<p style="color: ' + color + ';">Calling the API...</p><br>'
       /* 
       ip, city, region, country, loc, org
