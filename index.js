@@ -129,11 +129,13 @@ function submit() {
   } else if (commands[0] == "embed") {
   
   } else if (commands[0] == "client") {
+    log.innerHTML += '<p style="color: ' + color + ';">Requesting information...</p><br>'
     $.getJSON('https://ipinfo.io/json', function(data) {
+      log.innerHTML += '<p style="color: ' + color + ';">Calling the API...</p><br>'
       /* 
-        ip, city, region, country, loc, org
-      */
-      /*var ip = JSON.stringify(data.ip, null, 2);
+      ip, city, region, country, loc, org
+      
+      var ip = JSON.stringify(data.ip, null, 2);
       var city = JSON.stringify(data.city, null, 2);
       var region = JSON.stringify(data.region, null, 2);
       var country = JSON.stringify(data.country, null, 2);
@@ -182,7 +184,7 @@ function submit() {
          <td>Cookies are enabled:</td><td>` + navigator.cookieEnabled + `</td>
         </tr>
        </table>
-       <br>`
+       <br>`;
     });
     log.innerHTML += '<p style="color: ' + color + ';">Information successfully requested.</p><br>'
   } else if (commands[0] == "google" || commands[0] == "g") {
