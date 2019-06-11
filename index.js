@@ -42,6 +42,9 @@ function submit() {
           <td>embed [url]</td><td>Browses to the embed.ly page of the specified url</td>
          </tr>
          <tr>
+          <td>client</td><td>Displays information about the client</td>
+         </tr>
+         <tr>
           <td>urlinfo [url]</td><td>gets info about the specified url. /!\\ Not stable /!\\</td>
          </tr>
          <tr>
