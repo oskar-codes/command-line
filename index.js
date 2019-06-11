@@ -2,7 +2,7 @@ var input = document.querySelector("#input");
 var log = document.querySelector(".log");
 var color = "#22ff11";
 log.innerHTML =
-  "<p>Welcome to this little command line ! Start by executing the help command</p><br>";
+  "<p>Welcome to this little command line ! Start by executing the help command.</p><br>";
 
 function submit() {
   var command = input.value;
@@ -129,8 +129,8 @@ function submit() {
   } else if (commands[0] == "embed") {
   
   } else if (commands[0] == "client") {
-    log.innerHTML += '<p style="color: ' + color + ';">Requesting information...</p><br>'
-    $.getJSON('https://ipinfo.io/json/?callback=?', function(data) {
+    //log.innerHTML += '<p style="color: ' + color + ';">Requesting information...</p><br>'
+    /*$.getJSON('https://ipinfo.io/json/?callback=?', function(data) {
        log.innerHTML += '<p style="color: ' + color + ';">Calling the API...</p><br>'
        log.innerHTML += `<p style="color: #33ff11;">Client information:</p><br>
        <table style="color: #33ff11;">
@@ -176,7 +176,6 @@ function submit() {
        </table>
        <br>`;
       });
-      /* 
       ip, city, region, country, loc, org
       
       var ip = JSON.stringify(data.ip, null, 2);
@@ -186,7 +185,32 @@ function submit() {
       var location = JSON.stringify(data.loc, null, 2);
       var provider = JSON.stringify(data.org, null, 2);
       log.innerHTML += "<p style='color:#33ff11'>" + ip + "<br>" + city + "<br>" + region + "<br>" + country + "<br>" + location + "<br>" + provider + "</p><br>"*/
-    log.innerHTML += '<p style="color: ' + color + ';">Information successfully requested.</p><br>'
+    log.innerHTML += `<p style="color: #33ff11;">Client information:</p><br>
+       <table style="color: #33ff11;">
+        <tr>
+         <td>User agent:</td><td>` + navigator.userAgent + `</td>
+        </tr>
+        <tr>
+         <td>App name:</td><td>` + navigator.appName + `</td>
+        </tr>
+        <tr>
+         <td>Platform:</td><td>` + navigator.platform + `</td>
+        </tr>
+        <tr>
+         <td>Language:</td><td>` + navigator.language + `</td>
+        </tr>
+        <tr>
+         <td>Is online:</td><td>` + navigator.onLine + `</td>
+        </tr>
+        <tr>
+         <td>Java is enabled:</td><td>` + navigator.javaEnabled() + `</td>
+        </tr>
+        <tr>
+         <td>Cookies are enabled:</td><td>` + navigator.cookieEnabled + `</td>
+        </tr>
+       </table>
+       <br>`;
+    //log.innerHTML += '<p style="color: ' + color + ';">Information successfully requested.</p><br>'
   } else if (commands[0] == "google" || commands[0] == "g") {
     if (commands[1]) {
       window.open("https://google.com/search?q=" + encodeURIComponent(parameters));
