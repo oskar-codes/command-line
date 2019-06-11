@@ -126,6 +126,19 @@ function submit() {
   } else if (commands[0] == "embed") {
   
   } else if (commands[0] == "client") {
+    $.getJSON('https://ipinfo.io/json', function(data) {
+      /* 
+        ip, city, region, country, loc, org
+      */
+      var ip = data.ip;
+      var city = data.city;
+      var region = data.ip;
+      var country = data.country;
+      var provider = data.org;
+      console.log("Ip: " + JSON.stringify(ip, null, 2));
+      console.log("City: " + JSON.stringify(city, null, 2));
+      console.log("Region: " + JSON.stringify(region, null, 2));
+    });
     log.innerHTML += `<p style="color: #33ff11;">Client information:</p><br>
        <table style="color: #33ff11;">
         <tr>
@@ -257,12 +270,6 @@ $("#input").keydown(function (e) {
     submit();
   }
 });
-
-function getIpInfo() {
-  $.getJSON('https://ipinfo.io/json', function(data) {
-    return JSON.stringify(data, null, 2);
-  });
-}
 
 function formatUrl(url){
   var httpString = 'http://';
