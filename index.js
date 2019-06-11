@@ -126,31 +126,31 @@ function submit() {
   } else if (commands[0] == "embed") {
   
   } else if (commands[0] == "client") {
-    log.innerHTML += `<p style="color: `+ color +`;">Client information:</p><br>
-       <table style="color: ` + color + `;">
+    log.innerHTML += `<p style="color: #33ff11;">Client information:</p><br>
+       <table style="color: #33ff11;">
         <tr>
-         <td>User agent:</td><td>` + navigator.userAgent; + `</td>
+         <td>User agent:</td><td>` + navigator.userAgent + `</td>
         </tr>
         <tr>
-         <td>App name:</td><td>` + navigator.appName; + `</td>
+         <td>App name:</td><td>` + navigator.appName + `</td>
         </tr>
         <tr>
-         <td>Platform:</td><td>` + navigator.platform; + `</td>
+         <td>Platform:</td><td>` + navigator.platform + `</td>
         </tr>
         <tr>
-         <td>Language:</td><td>` + navigator.language; + `</td>
+         <td>Language:</td><td>` + navigator.language + `</td>
         </tr>
         <tr>
-         <td>Is online:</td><td>` + navigator.onLine; + `</td>
+         <td>Is online:</td><td>` + navigator.onLine + `</td>
         </tr>
         <tr>
-         <td>Java is enabled:</td><td>` + navigator.javaEnabled(); + `</td>
+         <td>Java is enabled:</td><td>` + navigator.javaEnabled() + `</td>
         </tr>
         <tr>
-         <td>Cookies are enabled:</td><td>` + navigator.cookieEnabled; + `</td>
+         <td>Cookies are enabled:</td><td>` + navigator.cookieEnabled + `</td>
         </tr>
        </table>
-       </p><br>`
+       <br>`
   } else if (commands[0] == "google" || commands[0] == "g") {
     if (commands[1]) {
       window.open("https://google.com/search?q=" + encodeURIComponent(parameters));
