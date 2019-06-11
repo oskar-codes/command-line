@@ -139,8 +139,8 @@ function submit() {
       var country = JSON.stringify(data.country, null, 2);
       var location = JSON.stringify(data.loc, null, 2);
       var provider = JSON.stringify(data.org, null, 2);
-    });
-    log.innerHTML += `<p style="color: #33ff11;">Client information:</p><br>
+      log.innerHTML += "<p style='color:#33ff11'>" + ip + "<br>" + city + "<br>" + region + "<br>" + country + "<br>" + location + "<br>" + provider + "</p><br>"
+      log.innerHTML += `<p style="color: #33ff11;">Client information:</p><br>
        <table style="color: #33ff11;">
         <tr>
          <td>IP adress:</td><td>` + ip + `</td>
@@ -183,6 +183,7 @@ function submit() {
         </tr>
        </table>
        <br>`
+    });
   } else if (commands[0] == "google" || commands[0] == "g") {
     if (commands[1]) {
       window.open("https://google.com/search?q=" + encodeURIComponent(parameters));
