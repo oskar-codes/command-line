@@ -39,7 +39,10 @@ function submit() {
           <td>cache [url] [view (full,text,source)]</td><td>browses to the cache of the specified url, and on the specified view</td>
          </tr>
          <tr>
-          <td>urlinfo [url]</td><td>gets info about the specified url</td>
+          <td>embed [url]</td><td>Browses to the embed.ly page of the specified url</td>
+         </tr>
+         <tr>
+          <td>urlinfo [url]</td><td>gets info about the specified url. /!\ Not stable /!\</td>
          </tr>
          <tr>
           <td>google [query]</td><td>searches Google for your query</td>
@@ -120,6 +123,8 @@ function submit() {
       log.innerHTML +=
         "<p style='color: red'>Error: No url specified.</p><br>";
     }
+  } else if (commands[0] == "embed") {
+             
   } else if (commands[0] == "google" || commands[0] == "g") {
     if (commands[1]) {
       window.open("https://google.com/search?q=" + encodeURIComponent(parameters));
