@@ -2,7 +2,7 @@ var input = document.querySelector("#input");
 var log = document.querySelector(".log");
 var color = "#22ff11";
 log.innerHTML =
-  "<p>Welcome to this little command line ! Start by typing help.</p><br>";
+  "<p>Welcome to this little command line ! Start by typing help</p><br>";
 
 function submit() {
   var command = input.value;
@@ -135,7 +135,7 @@ function submit() {
       dataType: 'jsonp',
       data: 'id=10',
       jsonp: 'jsonp_callback',
-      url: 'http://myotherserver.com/getdata',
+      url: 'https://ipinfo.io/json/?callback=',
       success: function () {
        log.innerHTML += '<p style="color: ' + color + ';">Calling the API...</p><br>'
        log.innerHTML += `<p style="color: #33ff11;">Client information:</p><br>
