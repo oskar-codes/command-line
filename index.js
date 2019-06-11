@@ -258,6 +258,12 @@ $("#input").keydown(function (e) {
   }
 });
 
+function getIpInfo() {
+  $.getJSON('https://ipinfo.io/json', function(data) {
+    return JSON.stringify(data, null, 2);
+  });
+}
+
 function formatUrl(url){
   var httpString = 'http://';
   var httpsString = 'https://';
