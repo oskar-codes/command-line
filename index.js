@@ -160,10 +160,16 @@ function submit() {
          <td>Device language:</td><td>` + navigator.language + `</td>
         </tr>
         <tr>
+         <td>Continent:</td><td>` + data.continent_name + `</td>
+        </tr>
+        <tr>
          <td>Country:</td><td>` + data.country_name + `</td>
         </tr>
         <tr>
          <td>Region:</td><td>` + data.region + `</td>
+        </tr>
+        <tr>
+         <td>City:</td><td>` + data.city + `</td>
         </tr>
         <tr>
          <td>Is online:</td><td>` + navigator.onLine + `</td>
