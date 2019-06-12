@@ -134,6 +134,10 @@ function submit() {
     request.open('GET', 'https://api.ipdata.co/?api-key=test');
 
     request.setRequestHeader('Accept', 'application/json');
+    
+    request.onerror = function () {
+      log.innerHTML += '<p style="color: red;">An error occured. Please try again later.</p><br>'
+    };
 
     request.onreadystatechange = function () {
       if (this.readyState === 4) {
