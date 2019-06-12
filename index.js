@@ -42,7 +42,7 @@ function submit() {
           <td><b>e</b>mbed [url]</td><td>Browses to the embed.ly page of the specified url</td>
          </tr>
          <tr>
-          <td>client</td><td>Displays information about the client</td>
+          <td><b>cli</b>ent</td><td>Displays information about the client</td>
          </tr>
          <tr>
           <td><b>urli</b>nfo [url]</td><td>gets info about the specified url. /!\\ Not stable /!\\</td>
@@ -133,7 +133,7 @@ function submit() {
       log.innerHTML +=
         "<p style='color: red'>Error: No url specified.</p><br>";      
     }
-  } else if (commands[0] == "client") {
+  } else if (commands[0] == "client" || commands[0] == "cli") {
     log.innerHTML += '<p style="color: '+ color +';">Requesting data...</p><br>'
     
     var request = new XMLHttpRequest();
@@ -150,50 +150,57 @@ function submit() {
     request.onreadystatechange = function () {
       if (this.readyState === 4) {
         var data = JSON.parse(this.responseText)
-        log.innerHTML += `<p style="color: `+ color +`;">Request successful. Retreived data:</p><br>
-       <table style="color: `+ color +`;">
-        <tr>
-         <td>IP adress:</td><td>` + data.ip + `</td>
-        </tr>
-        <tr>
-         <td>User agent:</td><td>` + navigator.userAgent + `</td>
-        </tr>
-        <tr>
-         <td>App name:</td><td>` + navigator.appName + `</td>
-        </tr>
-        <tr>
-         <td>Platform:</td><td>` + navigator.platform + `</td>
-        </tr>
-        <tr>
-         <td>Device language:</td><td>` + navigator.language + `</td>
-        </tr>
-        <tr>
-         <td>Continent:</td><td>` + data.continent_name + `</td>
-        </tr>
-        <tr>
-         <td>Country:</td><td>` + data.country_name + `</td>
-        </tr>
-        <tr>
-         <td>Region:</td><td>` + data.region + `</td>
-        </tr>
-        <tr>
-         <td>City:</td><td>` + data.city + `</td>
-        </tr>
-        <tr>
-         <td>Primary language:</td><td>` + data.languages[0].name + " / " + data.languages[0].native + `</td>
-        </tr>
-        <tr>
-         <td>Is online:</td><td>` + navigator.onLine + `</td>
-        </tr>
-        <tr>
-         <td>Java is enabled:</td><td>` + navigator.javaEnabled() + `</td>
-        </tr>
-        <tr>
-         <td>Cookies are enabled:</td><td>` + navigator.cookieEnabled + `</td>
-        </tr>
-       </table>
-       <br>`;
-       window.scrollBy(0, 100000);
+        if (commands[1] == "global" || commands[1] == "g" || !commands[1]) {
+          log.innerHTML += `<p style="color: `+ color +`;">Request successful. Retreived global data:</p><br>
+         <table style="color: `+ color +`;">
+          <tr>
+           <td>IP adress:</td><td>` + data.ip + `</td>
+          </tr>
+          <tr>
+           <td>User agent:</td><td>` + navigator.userAgent + `</td>
+          </tr>
+          <tr>
+           <td>App name:</td><td>` + navigator.appName + `</td>
+          </tr>
+          <tr>
+           <td>Platform:</td><td>` + navigator.platform + `</td>
+          </tr>
+          <tr>
+           <td>Device language:</td><td>` + navigator.language + `</td>
+          </tr>
+          <tr>
+           <td>Is online:</td><td>` + navigator.onLine + `</td>
+          </tr>
+          <tr>
+           <td>Java is enabled:</td><td>` + navigator.javaEnabled() + `</td>
+          </tr>
+          <tr>
+           <td>Cookies are enabled:</td><td>` + navigator.cookieEnabled + `</td>
+          </tr>
+         </table>
+         <br>`;
+         window.scrollBy(0, 100000);
+        } else if (commands[1] == "location" || commands[1] == "loc") {
+          log.innerHTML += `<p style="color: `+ color +`;">Request successful. Retreived localisation data:</p><br>
+         <table style="color: `+ color +`;">
+          <tr>
+           <td>Continent:</td><td>` + data.continent_name + `</td>
+          </tr>
+          <tr>
+           <td>Country:</td><td>` + data.country_name + `</td>
+          </tr>
+          <tr>
+           <td>Region:</td><td>` + data.region + `</td>
+          </tr>
+          <tr>
+           <td>City:</td><td>` + data.city + `</td>
+          </tr>
+          <tr>
+           <td>Primary language:</td><td>` + data.languages[0].name + " / " + data.languages[0].native + `</td>
+          </tr>
+          </table>
+          <br>`
+        }
       }
     };
     request.send();
