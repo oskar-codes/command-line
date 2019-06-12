@@ -99,7 +99,7 @@ function submit() {
     }
   } else if (commands[0] == "url") {
     if (commands[1]) {
-      window.open(formatUrl(commands[1]));
+      window.open(encodeURI(formatUrl(commands[1])));
     } else {
       log.innerHTML +=
         "<p style='color: red'>Error: No url specified.</p><br>";
@@ -128,7 +128,7 @@ function submit() {
     }
   } else if (commands[0] == "embed") {
     if (commands[1]) {
-      window.open("");
+      window.open("https://embed.ly/code?url=" + encodeURI(formatUrl(commands[1])));
     } else {
       log.innerHTML +=
         "<p style='color: red'>Error: No url specified.</p><br>";      
