@@ -138,14 +138,11 @@ function submit() {
     request.onreadystatechange = function () {
       if (this.readyState === 4) {
         var data = JSON.parse(this.responseText)
-        document.body.innerHTML += data.ip
-      }
-    };
-
-    request.send();
-    
-    log.innerHTML += `<p style="color: `+ color +`;">Client information:</p><br>
+        log.innerHTML += `<p style="color: `+ color +`;">Client information:</p><br>
        <table style="color: `+ color +`;">
+        <tr>
+         <td>User agent:</td><td>` + data.ip + `</td>
+        </tr>
         <tr>
          <td>User agent:</td><td>` + navigator.userAgent + `</td>
         </tr>
@@ -169,6 +166,10 @@ function submit() {
         </tr>
        </table>
        <br>`;
+      }
+    };
+    log.innerHTML += '<p style="color: '+ color +';">Task done.</p><br>'
+    request.send();
   } else if (commands[0] == "google" || commands[0] == "g") {
     if (commands[1]) {
       window.open("https://google.com/search?q=" + encodeURIComponent(parameters));
