@@ -139,6 +139,7 @@ function submit() {
     
     request.onerror = function () {
       log.innerHTML += '<p style="color: red;">An error occured while requesting the data. Please check your internet connection.</p><br>'
+      window.scrollBy(0, 100000);
     };
 
     request.onreadystatechange = function () {
@@ -187,6 +188,7 @@ function submit() {
         </tr>
        </table>
        <br>`;
+       window.scrollBy(0, 100000);
       }
     };
     request.send();
