@@ -184,19 +184,22 @@ function submit() {
           log.innerHTML += `<p style="color: `+ color +`;">Request successful. Retreived localisation data:</p><br>
          <table style="color: `+ color +`;">
           <tr>
-           <td>Continent:</td><td>` + data.continent_name + `</td>
+           <td>Continent:</td><td>` + data.continent_name + ` / ` + data.continent_code + `</td>
           </tr>
           <tr>
-           <td>Country:</td><td>` + data.country_name + `</td>
+           <td>Country:</td><td>` + data.country_name + ` / ` + data.country_code + `</td>
           </tr>
           <tr>
-           <td>Region:</td><td>` + data.region + `</td>
+           <td>Region:</td><td>` + data.region + ` / ` + data.region_code + `</td>
           </tr>
           <tr>
            <td>City:</td><td>` + data.city + `</td>
           </tr>
           <tr>
-           <td>Primary language:</td><td>` + data.languages[0].name + " / " + data.languages[0].native + `</td>
+           <td>Primary language:</td><td>` + data.languages[0].name + ` / ` + data.languages[0].native + `</td>
+          </tr>
+          <tr>
+           <td>Currency</td><td>` + data.currency.name + ` / ` + data.currency.code + `</td>
           </tr>
           </table>
           <br>`
