@@ -136,7 +136,7 @@ function submit() {
     request.setRequestHeader('Accept', 'application/json');
     
     request.onerror = function () {
-      log.innerHTML += '<p style="color: red;">An error occured. Please try again later.</p><br>'
+      log.innerHTML += '<p style="color: red;">An error occured. Please check your internet connection.</p><br>'
     };
 
     request.onreadystatechange = function () {
