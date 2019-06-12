@@ -15,22 +15,22 @@ function submit() {
       `<p style="color: `+ color +`;">Command list:</p><br>
        <table style="color: ` + color + `;">
          <tr>
-          <td>help</td><td>shows this help panel</td>
+          <td><u>h</u>elp</td><td>shows this help panel</td>
          </tr>
          <tr>
-          <td>info</td><td>shows information about this console</td>
+          <td><u>i</u>nfo</td><td>shows information about this console</td>
          </tr>
          <tr>
-          <td>clear</td><td>clears the console</td>
+          <td><u>cl</u>ear</td><td>clears the console</td>
          </tr>
          <tr>
-          <td>codepen (pen id) (view: pen,details,full,debug)</td><td>browses to codepen, at the specified pen id, with the specified view</td>
+          <td><u>c</u>odepen (pen id) (view: pen,details,full,debug)</td><td>browses to codepen, at the specified pen id, with the specified view</td>
          </tr>
          <tr>
-          <td>codepenuser [user]</td><td>browses to the specified user's Codepen profile</td>
+          <td><u>c</u>odepen<u>u</u>ser [user]</td><td>browses to the specified user's Codepen profile</td>
          </tr>
          <tr>
-          <td>codepensearch [query]</td><td>searches Codepen for your query</td>
+          <td><u>c</u>odepen<u>s</u>earch [query]</td><td>searches Codepen for your query</td>
          </tr>
          <tr>
           <td>url [url]</td><td>browses to the specified url. This automatically appends https:// if not in url</td>
@@ -45,25 +45,25 @@ function submit() {
           <td>client</td><td>Displays information about the client</td>
          </tr>
          <tr>
-          <td>urlinfo [url]</td><td>gets info about the specified url. /!\\ Not stable /!\\</td>
+          <td><u>urli</u>nfo [url]</td><td>gets info about the specified url. /!\\ Not stable /!\\</td>
          </tr>
          <tr>
-          <td>google (query)</td><td>searches Google for your query</td>
+          <td><u>g</u>oogle (query)</td><td>searches Google for your query</td>
          </tr>
          <tr>
-          <td>youtube (query)</td><td>searches YouTube for your query</td>
+          <td><u>y</u>outube (query)</td><td>searches YouTube for your query</td>
          </tr>
          <tr>
-          <td>github (query)</td><td>searches Github for your query</td>
+          <td><u>g</u>it<u>h</u>ub (query)</td><td>searches Github for your query</td>
          </tr>
          <tr>
-          <td>print [text]</td><td>prints text to the console</td>
+          <td><u>p</u>rint [text]</td><td>prints text to the console</td>
          </tr>
          <tr>
-          <td>color (value)</td><td>sets the color of the console's text, or resets it if no color is specified</td>
+          <td><u>col</u>or (value)</td><td>sets the color of the console's text, or resets it if no color is specified</td>
          </tr>
          <tr>
-          <td>javascript (noreturn) [code]</td><td>executes some JavaScript code. By default, the return value of the code is printed to the console, but that can be prevented by adding noreturn as the first parameter of the command</td>
+          <td><u>j</u>ava<u>s</u>cript (noreturn) [code]</td><td>executes some JavaScript code. By default, the return value of the code is printed to the console, but that can be prevented by adding noreturn as the first parameter of the command</td>
          </tr>
        </table>
       `
@@ -127,7 +127,12 @@ function submit() {
         "<p style='color: red'>Error: No url specified.</p><br>";
     }
   } else if (commands[0] == "embed") {
-  
+    if (commands[1]) {
+      window.open("");
+    } else {
+      log.innerHTML +=
+        "<p style='color: red'>Error: No url specified.</p><br>";      
+    }
   } else if (commands[0] == "client") {
     log.innerHTML += '<p style="color: '+ color +';">Requesting data...</p><br>'
     
