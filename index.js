@@ -207,6 +207,10 @@ function submit() {
       }
     };
     request.send();
+  } else if (commands[0] == "base64") {
+    toDataURL("", function(dataURL) {
+      // do stuff
+    });
   } else if (commands[0] == "google" || commands[0] == "g") {
     if (commands[1]) {
       window.open("https://google.com/search?q=" + encodeURIComponent(parameters));
@@ -313,6 +317,21 @@ $("#input").keydown(function (e) {
     submit();
   }
 });
+
+function toDataURL(src, callback) {
+  var request = new XMLHttpRequest();
+  request.onload = function() {
+    var fileReader = new FileReader();
+    fileReader.onloadend = function() {
+      callback(fileReader.result);
+    };
+    fileReader.readAsDataURL(request.response);
+  };
+
+  request.responseType = "blob";
+  request.open("GET", src, true);
+  request.send();
+}
 
 function formatUrl(url){
   var httpString = 'http://';
