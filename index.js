@@ -48,6 +48,9 @@ function submit() {
           <td><b>urli</b>nfo [url]</td><td>gets info about the specified url. /!\\ Not stable /!\\</td>
          </tr>
          <tr>
+          <td><b>b</b>ase<b>64</b></td><td>encodes a file using base64 encoding, and opens it</td>
+         </tr>
+         <tr>
           <td><b>g</b>oogle (query)</td><td>searches Google for your query</td>
          </tr>
          <tr>
