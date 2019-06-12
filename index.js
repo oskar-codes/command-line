@@ -172,6 +172,9 @@ function submit() {
          <td>City:</td><td>` + data.city + `</td>
         </tr>
         <tr>
+         <td>Primary language:</td><td>` + data.languages[0].name + " / " + data.languages[0].native + `</td>
+        </tr>
+        <tr>
          <td>Is online:</td><td>` + navigator.onLine + `</td>
         </tr>
         <tr>
