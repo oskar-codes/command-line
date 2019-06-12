@@ -187,7 +187,6 @@ function submit() {
        <br>`;
       }
     };
-    log.innerHTML += '<p style="color: '+ color +';">Task done.</p><br>'
     request.send();
   } else if (commands[0] == "google" || commands[0] == "g") {
     if (commands[1]) {
