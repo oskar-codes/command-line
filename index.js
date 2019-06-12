@@ -24,7 +24,7 @@ function submit() {
           <td>clear</td><td>clears the console</td>
          </tr>
          <tr>
-          <td>codepen [pen id] [view (pen,details,full,debug)]</td><td>browses to codepen, at the specified pen id, with the specified view</td>
+          <td>codepen (pen id) (view: pen,details,full,debug)</td><td>browses to codepen, at the specified pen id, with the specified view</td>
          </tr>
          <tr>
           <td>codepenuser [user]</td><td>browses to the specified user's Codepen profile</td>
@@ -36,7 +36,7 @@ function submit() {
           <td>url [url]</td><td>browses to the specified url. This automatically appends https:// if not in url</td>
          </tr>
          <tr>
-          <td>cache [url] [view (full,text,source)]</td><td>browses to the cache of the specified url, and on the specified view</td>
+          <td>cache [url] (view: full,text,source)</td><td>browses to the cache of the specified url, and on the specified view</td>
          </tr>
          <tr>
           <td>embed [url]</td><td>Browses to the embed.ly page of the specified url</td>
@@ -48,22 +48,22 @@ function submit() {
           <td>urlinfo [url]</td><td>gets info about the specified url. /!\\ Not stable /!\\</td>
          </tr>
          <tr>
-          <td>google [query]</td><td>searches Google for your query</td>
+          <td>google (query)</td><td>searches Google for your query</td>
          </tr>
          <tr>
-          <td>youtube [query]</td><td>searches YouTube for your query</td>
+          <td>youtube (query)</td><td>searches YouTube for your query</td>
          </tr>
          <tr>
-          <td>github [query]</td><td>searches Github for your query</td>
+          <td>github (query)</td><td>searches Github for your query</td>
          </tr>
          <tr>
           <td>print [text]</td><td>prints text to the console</td>
          </tr>
          <tr>
-          <td>color [value]</td><td>sets the color of the console's text, or resets it if no color is specified</td>
+          <td>color (value)</td><td>sets the color of the console's text, or resets it if no color is specified</td>
          </tr>
          <tr>
-          <td>javascript [code]</td><td>executes some JavaScript code. By default, the return value of the code is printed to the console, but that can be prevented by adding noreturn as the first parameter of the command</td>
+          <td>javascript (noreturn) [code]</td><td>executes some JavaScript code. By default, the return value of the code is printed to the console, but that can be prevented by adding noreturn as the first parameter of the command</td>
          </tr>
        </table>
       `
