@@ -24,7 +24,7 @@ function submit() {
           <td><b>cl</b>ear</td><td>clears the console</td>
          </tr>
          <tr>
-          <td><b>c</b>odepen (pen id) (view: pen,details,full,debug)</td><td>browses to codepen, at the specified pen id, with the specified view</td>
+          <td><b>c</b>odepen (pen id) (view: pen,details,full,debug)</td><td>browses to codepen, at the specified pen id, with the specified view. If "new" is entered instead of the pen id, a new pen is created.</td>
          </tr>
          <tr>
           <td><b>c</b>odepen<b>u</b>ser [user]</td><td>browses to the specified user's Codepen profile</td>
@@ -71,10 +71,14 @@ function submit() {
     log.innerHTML += "<p style='color: " + color + "'>This console was made by ZOSK, a young amateur web and game developer. It was originally made in Codepen, and then moved to Github. That's why a lot of commands have to do with Codepen.<br>Check out my Twitter account <a style='color: " + color + ";' href='https://twitter.com/ZOSK17'>here</a>.</p><br>";
   } else if (commands[0] == "codepen" || commands[0] == "c") {
     if (commands[1]) {
-      if (commands[2]) {
-        window.open("https://codepen.io/ZOSK/" + encodeURIComponent(commands[2]) + "/" + encodeURIComponent(commands[1]));
+      if (commands[1] == "new") {
+        window.open("https://codepen.io/pen");
       } else {
-        window.open("https://codepen.io/ZOSK/pen/" + encodeURIComponent(commands[1]));
+        if (commands[2]) {
+          window.open("https://codepen.io/ZOSK/" + encodeURIComponent(commands[2]) + "/" + encodeURIComponent(commands[1]));
+        } else {
+          window.open("https://codepen.io/ZOSK/pen/" + encodeURIComponent(commands[1]));
+        }
       }
     } else {
       window.open("https://codepen.io");
