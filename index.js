@@ -356,7 +356,7 @@ function getUrlInfo(input_url) {
 $("#file").change( function(event) {
   var path = URL.createObjectURL(event.target.files[0]);
   toDataURL(path, function(dataURL) {
-    log.innerHTML += "<p style='color: "+ color +";'>File successfully converted using base64 encoding.</p><br>"
+    log.innerHTML += "<p style='color: "+ color +";'>File successfully converted.</p><br>"
     window.open(dataURL);
   });
 })
