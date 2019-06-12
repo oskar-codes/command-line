@@ -15,22 +15,22 @@ function submit() {
       `<p style="color: `+ color +`;">Command list:</p><br>
        <table style="color: ` + color + `;">
          <tr>
-          <td><u>h</u>elp</td><td>shows this help panel</td>
+          <td><b>h</b>elp</td><td>shows this help panel</td>
          </tr>
          <tr>
-          <td><u>i</u>nfo</td><td>shows information about this console</td>
+          <td><b>i</b>nfo</td><td>shows information about this console</td>
          </tr>
          <tr>
-          <td><u>cl</u>ear</td><td>clears the console</td>
+          <td><b>cl</b>ear</td><td>clears the console</td>
          </tr>
          <tr>
-          <td><u>c</u>odepen (pen id) (view: pen,details,full,debug)</td><td>browses to codepen, at the specified pen id, with the specified view</td>
+          <td><b>c</b>odepen (pen id) (view: pen,details,full,debug)</td><td>browses to codepen, at the specified pen id, with the specified view</td>
          </tr>
          <tr>
-          <td><u>c</u>odepen<u>u</u>ser [user]</td><td>browses to the specified user's Codepen profile</td>
+          <td><b>c</b>odepen<b>u</b>ser [user]</td><td>browses to the specified user's Codepen profile</td>
          </tr>
          <tr>
-          <td><u>c</u>odepen<u>s</u>earch [query]</td><td>searches Codepen for your query</td>
+          <td><b>c</b>odepen<b>s</b>earch [query]</td><td>searches Codepen for your query</td>
          </tr>
          <tr>
           <td>url [url]</td><td>browses to the specified url. This automatically appends https:// if not in url</td>
@@ -39,31 +39,31 @@ function submit() {
           <td>cache [url] (view: full,text,source)</td><td>browses to the cache of the specified url, and on the specified view</td>
          </tr>
          <tr>
-          <td>embed [url]</td><td>Browses to the embed.ly page of the specified url</td>
+          <td><b>e</b>mbed [url]</td><td>Browses to the embed.ly page of the specified url</td>
          </tr>
          <tr>
           <td>client</td><td>Displays information about the client</td>
          </tr>
          <tr>
-          <td><u>urli</u>nfo [url]</td><td>gets info about the specified url. /!\\ Not stable /!\\</td>
+          <td><b>urli</b>nfo [url]</td><td>gets info about the specified url. /!\\ Not stable /!\\</td>
          </tr>
          <tr>
-          <td><u>g</u>oogle (query)</td><td>searches Google for your query</td>
+          <td><b>g</b>oogle (query)</td><td>searches Google for your query</td>
          </tr>
          <tr>
-          <td><u>y</u>outube (query)</td><td>searches YouTube for your query</td>
+          <td><b>y</b>outube (query)</td><td>searches YouTube for your query</td>
          </tr>
          <tr>
-          <td><u>g</u>it<u>h</u>ub (query)</td><td>searches Github for your query</td>
+          <td><b>g</b>it<b>h</b>ub (query)</td><td>searches Github for your query</td>
          </tr>
          <tr>
-          <td><u>p</u>rint [text]</td><td>prints text to the console</td>
+          <td><b>p</b>rint [text]</td><td>prints text to the console</td>
          </tr>
          <tr>
-          <td><u>col</u>or (value)</td><td>sets the color of the console's text, or resets it if no color is specified</td>
+          <td><b>col</b>or (value)</td><td>sets the color of the console's text, or resets it if no color is specified</td>
          </tr>
          <tr>
-          <td><u>j</u>ava<u>s</u>cript (noreturn) [code]</td><td>executes some JavaScript code. By default, the return value of the code is printed to the console, but that can be prevented by adding noreturn as the first parameter of the command</td>
+          <td><b>j</b>ava<b>s</b>cript (<b>nor</b>eturn) [code]</td><td>executes some JavaScript code. By default, the return value of the code is printed to the console, but that can be prevented by adding noreturn as the first parameter of the command</td>
          </tr>
        </table>
       `
@@ -126,7 +126,7 @@ function submit() {
       log.innerHTML +=
         "<p style='color: red'>Error: No url specified.</p><br>";
     }
-  } else if (commands[0] == "embed") {
+  } else if (commands[0] == "embed" || commands[0] == "e") {
     if (commands[1]) {
       window.open("https://embed.ly/code?url=" + encodeURI(formatUrl(commands[1])));
     } else {
