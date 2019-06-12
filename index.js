@@ -212,9 +212,7 @@ function submit() {
     };
     request.send();
   } else if (commands[0] == "base64") {
-    toDataURL("", function(dataURL) {
-      // do stuff
-    });
+    $("#file").trigger('click');
   } else if (commands[0] == "google" || commands[0] == "g") {
     if (commands[1]) {
       window.open("https://google.com/search?q=" + encodeURIComponent(parameters));
@@ -351,6 +349,13 @@ function getUrlInfo(input_url) {
   $.get( "https://embedapi.com/api/embed", { "url" : "https://youtube.com/", "key" : "mRWoAB6R2TUGp3zp4nSLOi63FDCkd7OJduTe9aPR" }, function( data ) { var rdata = data } );
   return rdata;
 }
+
+$("#file").change( function(event) {
+  var path = URL.createObjectURL(event.target.files[0]);
+  toDataURL(path, function(dataURL) {
+    window.open(dataURL);
+  });
+})
 
 window.onload = function () {
   input.focus();
