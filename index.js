@@ -129,62 +129,21 @@ function submit() {
   } else if (commands[0] == "embed") {
   
   } else if (commands[0] == "client") {
-    //log.innerHTML += '<p style="color: ' + color + ';">Requesting information...</p><br>'
-    /*$.getJSON('https://ipinfo.io/json/?callback=?', function(data) {
-       log.innerHTML += '<p style="color: ' + color + ';">Calling the API...</p><br>'
-       log.innerHTML += `<p style="color: #33ff11;">Client information:</p><br>
-       <table style="color: #33ff11;">
-        <tr>
-         <td>IP adress:</td><td>` + JSON.stringify(data.ip, null, 2) + `</td>
-        </tr>
-        <tr>
-         <td>User agent:</td><td>` + navigator.userAgent + `</td>
-        </tr>
-        <tr>
-         <td>App name:</td><td>` + navigator.appName + `</td>
-        </tr>
-        <tr>
-         <td>Platform:</td><td>` + navigator.platform + `</td>
-        </tr>
-        <tr>
-         <td>City:</td><td>` + JSON.stringify(data.city, null, 2) + `</td>
-        </tr>
-        <tr>
-         <td>Region:</td><td>` + JSON.stringify(data.region, null, 2) + `</td>
-        </tr>
-        <tr>
-         <td>Country:</td><td>` + JSON.stringify(data.country, null, 2) + `</td>
-        </tr>
-        <tr>
-         <td>Location:</td><td>` + JSON.stringify(data.loc, null, 2) + `</td>
-        </tr>
-        <tr>
-         <td>Network provider:</td><td>` + JSON.stringify(data.org, null, 2) + `</td>
-        </tr>
-        <tr>
-         <td>Language:</td><td>` + navigator.language + `</td>
-        </tr>
-        <tr>
-         <td>Is online:</td><td>` + navigator.onLine + `</td>
-        </tr>
-        <tr>
-         <td>Java is enabled:</td><td>` + navigator.javaEnabled() + `</td>
-        </tr>
-        <tr>
-         <td>Cookies are enabled:</td><td>` + navigator.cookieEnabled + `</td>
-        </tr>
-       </table>
-       <br>`;
-      });
-      ip, city, region, country, loc, org
-      
-      var ip = JSON.stringify(data.ip, null, 2);
-      var city = JSON.stringify(data.city, null, 2);
-      var region = JSON.stringify(data.region, null, 2);
-      var country = JSON.stringify(data.country, null, 2);
-      var location = JSON.stringify(data.loc, null, 2);
-      var provider = JSON.stringify(data.org, null, 2);
-      log.innerHTML += "<p style='color:#33ff11'>" + ip + "<br>" + city + "<br>" + region + "<br>" + country + "<br>" + location + "<br>" + provider + "</p><br>"*/
+    var request = new XMLHttpRequest();
+
+    request.open('GET', 'https://api.ipdata.co/?api-key=test');
+
+    request.setRequestHeader('Accept', 'application/json');
+
+    request.onreadystatechange = function () {
+      if (this.readyState === 4) {
+        var data = JSON.parse(this.responseText)
+        document.body.innerHTML += data.ip
+      }
+    };
+
+    request.send();
+    
     log.innerHTML += `<p style="color: `+ color +`;">Client information:</p><br>
        <table style="color: `+ color +`;">
         <tr>
@@ -210,7 +169,6 @@ function submit() {
         </tr>
        </table>
        <br>`;
-    //log.innerHTML += '<p style="color: ' + color + ';">Information successfully requested.</p><br>'
   } else if (commands[0] == "google" || commands[0] == "g") {
     if (commands[1]) {
       window.open("https://google.com/search?q=" + encodeURIComponent(parameters));
