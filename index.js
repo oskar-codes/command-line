@@ -131,7 +131,7 @@ function submit() {
   } else if (commands[0] == "client") {
     var request = new XMLHttpRequest();
 
-    request.open('GET', 'https://api.ipdata.co/?api-key=test');
+    request.open('GET', 'https://api.ipdata.co/?api-key=a528333681434307d1c1c9aebe6a4091375f01435b268ad60a7f8671');
 
     request.setRequestHeader('Accept', 'application/json');
     
