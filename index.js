@@ -157,10 +157,13 @@ function submit() {
          <td>Platform:</td><td>` + navigator.platform + `</td>
         </tr>
         <tr>
+         <td>Device language:</td><td>` + navigator.language + `</td>
+        </tr>
+        <tr>
          <td>Country:</td><td>` + data.country_name + `</td>
         </tr>
         <tr>
-         <td>Language:</td><td>` + navigator.language + `</td>
+         <td>Region:</td><td>` + data.region + `</td>
         </tr>
         <tr>
          <td>Is online:</td><td>` + navigator.onLine + `</td>
