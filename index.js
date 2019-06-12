@@ -199,7 +199,7 @@ function submit() {
            <td>Primary language:</td><td>` + data.languages[0].name + ` / ` + data.languages[0].native + `</td>
           </tr>
           <tr>
-           <td>Currency</td><td>` + data.currency.name + ` / ` + data.currency.code + `</td>
+           <td>Currency:</td><td>` + data.currency.name + ` / ` + data.currency.code + `</td>
           </tr>
           </table>
           <br>`
