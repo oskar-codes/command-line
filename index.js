@@ -179,7 +179,6 @@ function submit() {
           </tr>
          </table>
          <br>`;
-         window.scrollBy(0, 100000);
         } else if (commands[1] == "location" || commands[1] == "loc") {
           log.innerHTML += `<p style="color: `+ color +`;">Request successful. Retreived localisation data:</p><br>
          <table style="color: `+ color +`;">
@@ -204,6 +203,7 @@ function submit() {
           </table>
           <br>`
         }
+        window.scrollBy(0, 100000);
       }
     };
     request.send();
