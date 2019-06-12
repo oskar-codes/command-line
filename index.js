@@ -129,6 +129,8 @@ function submit() {
   } else if (commands[0] == "embed") {
   
   } else if (commands[0] == "client") {
+    log.innerHTML += '<p style="color: '+ color +';">Requesting data...</p><br>'
+    
     var request = new XMLHttpRequest();
 
     request.open('GET', 'https://api.ipdata.co/?api-key=a528333681434307d1c1c9aebe6a4091375f01435b268ad60a7f8671');
@@ -142,7 +144,7 @@ function submit() {
     request.onreadystatechange = function () {
       if (this.readyState === 4) {
         var data = JSON.parse(this.responseText)
-        log.innerHTML += `<p style="color: `+ color +`;">Client information:</p><br>
+        log.innerHTML += `<p style="color: `+ color +`;">Request successful. Data:</p><br>
        <table style="color: `+ color +`;">
         <tr>
          <td>IP adress:</td><td>` + data.ip + `</td>
