@@ -157,7 +157,7 @@ function submit() {
          <td>Platform:</td><td>` + navigator.platform + `</td>
         </tr>
         <tr>
-         <td>Country:</td><td>` + data.country + `</td>
+         <td>Country:</td><td>` + data.country_name + `</td>
         </tr>
         <tr>
          <td>Language:</td><td>` + navigator.language + `</td>
