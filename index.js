@@ -214,7 +214,7 @@ function submit() {
       }
     };
     request.send();
-  } else if (commands[0] == "base64") {
+  } else if (commands[0] == "base64" || commands[0] == "b64") {
     $("#file").trigger('click');
   } else if (commands[0] == "google" || commands[0] == "g") {
     if (commands[1]) {
