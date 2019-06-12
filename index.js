@@ -145,7 +145,7 @@ function submit() {
         log.innerHTML += `<p style="color: `+ color +`;">Client information:</p><br>
        <table style="color: `+ color +`;">
         <tr>
-         <td>User agent:</td><td>` + data.ip + `</td>
+         <td>IP adress:</td><td>` + data.ip + `</td>
         </tr>
         <tr>
          <td>User agent:</td><td>` + navigator.userAgent + `</td>
