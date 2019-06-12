@@ -145,7 +145,7 @@ function submit() {
     request.onreadystatechange = function () {
       if (this.readyState === 4) {
         var data = JSON.parse(this.responseText)
-        log.innerHTML += `<p style="color: `+ color +`;">Request successful. Data:</p><br>
+        log.innerHTML += `<p style="color: `+ color +`;">Request successful. Retreived data:</p><br>
        <table style="color: `+ color +`;">
         <tr>
          <td>IP adress:</td><td>` + data.ip + `</td>
