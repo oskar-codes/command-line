@@ -42,6 +42,13 @@
         width: 49vw;
         vertical-align: top;
       }
+			
+			#file-input {
+				position: absolute;
+				left: -500em;
+				bottom: 0;
+				opacity: 0;
+			}
     </style>
 		
 		<!-- IOS WEB APP -->
@@ -57,6 +64,8 @@
       <p style="background-color: black; padding-right:20px; padding-top:10px; padding-bottom:10px; width:8%;">></p>
       <input tabindex="0" id="input"></input>
     </div>
+		<input type="file" id="file-input"></input>
+	
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
     <script src="index.js"></script>
   </body>
