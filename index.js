@@ -252,7 +252,7 @@ function submit() {
     if (commands[1]) {
       var parameters2 = command.substr(command.indexOf(commands[1]) + commands[1].length);
       if (commands[1] == "color" || commands[1] == "col") {
-        if (parameters[2]) {
+        if (commands[2]) {
           color = parameters2;
           input.style.color = parameters2;
           input.style.caretColor = parameters2;
@@ -266,7 +266,7 @@ function submit() {
           log.innerHTML += '<p style="color: '+ color +';">Text color reset.</p><br>';
         }
       } else if (commands[1] == "bgcolor" || commands[1] == "bgcol" || commands[1] == "bg") {
-        if (parameters[2]) {
+        if (commands[2]) {
           log.style.backgroundColor = parameters2;
           input.style.backgroundColor = parameters2;
           input_container.style.backgroundColor = parameters2;
