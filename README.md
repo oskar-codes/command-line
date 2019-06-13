@@ -1,3 +1,2 @@
-# command-line
-A simple command line originally made in codepen
-https://oskar-codes.github.io/command-line
+# Webline
+Webline is a highly hackable web based terminal https://oskar-codes.github.io/webline
