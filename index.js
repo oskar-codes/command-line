@@ -255,11 +255,13 @@ function submit() {
         if (parameters[2]) {
           color = parameters2;
           input.style.color = parameters2;
+          input.style.caretColor = parameters2;
           cursor.style.color = parameters2;
           log.innerHTML += '<p style="color: '+ color +';">Text color set to '+ parameters2 +'.</p><br>';
         } else {
           color = "#33ff11"
           input.style.color = "#33ff11";
+          input.style.caretColor = "#33ff11";
           cursor.style.color = "#33ff11";
           log.innerHTML += '<p style="color: '+ color +';">Text color reset.</p><br>';
         }
