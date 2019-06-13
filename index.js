@@ -1,6 +1,6 @@
 var input = document.querySelector("#input");
-var input_container = document.getElementById("input-container");
-var cursor = document.getElementById("cursor");
+var input_container = document.querySelector("#input-container");
+var cursor = document.querySelector("#cursor");
 var log = document.querySelector(".log");
 var color = "#33ff11";
 log.innerHTML =
