@@ -9,8 +9,8 @@ function submit() {
   input.value = "";
   var commands = strToArr(command);
   var parameters = command.substr(command.indexOf(" ") + 1);
-  log.innerHTML += "<p style='color: "+ color +";'>>   " + command; + "</p><br><br>"
   if (commands[0] != "") {
+  log.innerHTML += "<p style='color: "+ color +";'>>   " + command; + "</p><br><br>"
   if (commands[0] == "help" || commands[0] == "h") {
     log.innerHTML +=
       `<p style="color: `+ color +`;">Command list:</p><br>
