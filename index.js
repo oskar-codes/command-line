@@ -4,7 +4,7 @@ var cursor = document.querySelector("#cursor");
 var log = document.querySelector(".log");
 var color = "#33ff11";
 log.innerHTML =
-  "<p>Welcome to Webline ! Start by executing the help command</p><br>";
+  "<p>Welcome to Webline! Start by executing the help command</p><br>";
 
 function submit() {
   var command = input.value;
@@ -262,7 +262,7 @@ function submit() {
           cursor.style.color = parameters2;
           log.innerHTML += '<p style="color: '+ color +';">Text color set to '+ parameters2 +'.</p><br>';
         } else {
-          color = "#33ff11"
+          color = "#33ff11";
           input.style.color = "#33ff11";
           input.style.caretColor = "#33ff11";
           cursor.style.color = "#33ff11";
@@ -270,18 +270,18 @@ function submit() {
         }
       } else if (commands[1] == "bgcolor" || commands[1] == "bgcol" || commands[1] == "bg") {
         if (commands[2]) {
+          document.body.style.backgroundColor = parameters2;
           log.style.backgroundColor = parameters2;
           input.style.backgroundColor = parameters2;
           input_container.style.backgroundColor = parameters2;
           cursor.style.backgroundColor = parameters2;
-          document.body.style.backgroundColor = parameters2;
-          '<p style="color: '+ color +';">Background color set to '+ parameters2 +'.</p><br>';
+          log.innerHTML += '<p style="color: '+ color +';">Background color set to '+ parameters2 +'.</p><br>';
         } else {
+          document.body.style.backgroundColor = "#000";
           log.style.backgroundColor = "#000";
           input.style.backgroundColor = "#000";
           input_container.style.backgroundColor = "#000";
           cursor.style.backgroundColor = "#000";
-          document.body.style.backgroundColor = "#000";
           log.innerHTML += '<p style="color: '+ color +';">Background color reset.</p><br>';
         }
       }
