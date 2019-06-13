@@ -2,7 +2,7 @@ var input = document.querySelector("#input");
 var log = document.querySelector(".log");
 var color = "#22ff11";
 log.innerHTML =
-  "<p>Welcome to this little command line ! Start by executing the help command.</p><br>";
+  "<p>Welcome to Webline ! Start by executing the help command.</p><br>";
 
 function submit() {
   var command = input.value;
@@ -72,7 +72,7 @@ function submit() {
        </table>
       `
   } else if (commands[0] == "info" || commands[0] == "i") {
-    log.innerHTML += "<p style='color: " + color + "'>This console was made by ZOSK, a young amateur web and game developer. It was originally made in Codepen, and then moved to Github. That's why a lot of commands have to do with Codepen.<br>Check out my Twitter account <a style='color: " + color + ";' href='https://twitter.com/ZOSK17'>here</a>.</p><br>";
+    log.innerHTML += "<p style='color: " + color + "'>This terminal was made by ZOSK, a young amateur web and game developer. It was originally made in Codepen, and then moved to Github. That's why a lot of commands have to do with Codepen.<br>Check out my Twitter account <a style='color: " + color + ";' href='https://twitter.com/ZOSK17'>here</a>.</p><br>";
   } else if (commands[0] == "codepen" || commands[0] == "c") {
     if (commands[1]) {
       if (commands[1] == "new") {
