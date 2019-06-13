@@ -253,7 +253,6 @@ function submit() {
       if (commands[2]) {
         var parameters2 = command.substr(command.indexOf(commands[1]) + commands[1].length);
       }
-      alert(parameters2)
       if (commands[1] == "color" || commands[1] == "col") {
         if (commands[2]) {
           color = parameters2;
