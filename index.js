@@ -254,27 +254,35 @@ function submit() {
       if (commands[1] == "color" || commands[1] == "col") {
         if (parameters[2]) {
           color = parameters2;
+          input.style.color = parameters2;
+          cursor.style.color = parameters2;
+          log.innerHTML += '<p style="color: '+ color +';">Text color set to '+ parameters2 +'.</p><br>';
         } else {
           color = "#33ff11"
+          input.style.color = "#33ff11";
+          cursor.style.color = "#33ff11";
+          log.innerHTML += '<p style="color: '+ color +';">Text color reset.</p><br>';
         }
-      } else if (commands[1] == "bgcolor" || commands[1] == "bgcolor" || commands[1] == "bg") {
+      } else if (commands[1] == "bgcolor" || commands[1] == "bgcol" || commands[1] == "bg") {
         if (parameters[2]) {
           log.style.backgroundColor = parameters2;
           input.style.backgroundColor = parameters2;
           input_container.style.backgroundColor = parameters2;
           cursor.style.backgroundColor = parameters2;
           document.body.style.backgroundColor = parameters2;
+          '<p style="color: '+ color +';">Background color set to '+ parameters2 +'.</p><br>';
         } else {
           log.style.backgroundColor = "#000";
           input.style.backgroundColor = "#000";
           input_container.style.backgroundColor = "#000";
           cursor.style.backgroundColor = "#000";
           document.body.style.backgroundColor = "#000";
+          log.innerHTML += '<p style="color: '+ color +';">Background color reset.</p><br>';
         }
       }
     } else {
       log.innerHTML +=
-        '<p style="color: ' + color + '">Error: no setting specified.</p><br>';
+        '<p style="color: red;">Error: no setting specified.</p><br>';
     }
   } else if (commands[0] == "js" || commands[0] == "javascript") {
     var syntaxError = false;
