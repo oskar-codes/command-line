@@ -24,7 +24,7 @@ function submit() {
           <td><b>cl</b>ear</td><td>Clears the console.</td>
          </tr>
          <tr>
-          <td><b>c</b>odepen (pen id) (view: pen,details,full,debug)</td><td>Browses to codepen, at the specified pen id, with the specified view. If "new" is entered instead of the pen id, a new pen is created.</td>
+          <td><b>c</b>odepen (pen id) (view: pen, details, full, debug)</td><td>Browses to codepen, at the specified pen id, with the specified view. If "new" is entered instead of the pen id, a new pen is created.</td>
          </tr>
          <tr>
           <td><b>c</b>odepen<b>u</b>ser [user]</td><td>Browses to the specified user's Codepen profile.</td>
@@ -36,7 +36,7 @@ function submit() {
           <td>url [url]</td><td>Browses to the specified url.</td>
          </tr>
          <tr>
-          <td>cache [url] (view: full,text,source)</td><td>Browses to the cache of the specified url, and on the specified view.</td>
+          <td>cache [url] (view: full, text, source)</td><td>Browses to the cache of the specified url, and on the specified view.</td>
          </tr>
          <tr>
           <td><b>e</b>mbed [url]</td><td>Browses to the embed.ly page of the specified url.</td>
@@ -209,6 +209,9 @@ function submit() {
           </tr>
           </table>
           <br>`
+        } else {
+          log.innerHTML +=
+          '<p style="color: red">Error: unknown information type ('+ commands[1] +'). Please use a valid information type or none.</p><br>';
         }
         window.scrollBy(0, 100000);
       }
