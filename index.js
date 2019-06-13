@@ -9,6 +9,7 @@ function submit() {
   input.value = "";
   var commands = strToArr(command);
   var parameters = command.substr(command.indexOf(" ") + 1);
+  log.innerHTML += "<p style='color: "+ color +";'>> " + command; + "</p><br>"
   if (commands[0] != "") {
   if (commands[0] == "help" || commands[0] == "h") {
     log.innerHTML +=
@@ -150,7 +151,7 @@ function submit() {
     request.setRequestHeader('Accept', 'application/json');
     
     request.onerror = function () {
-      log.innerHTML += '<p style="color: red;">An error occured while requesting the data. Please check your internet connection.</p><br>'
+      log.innerHTML += '<p style="color: red;">Error : unable to request the data. Please check your internet connection.</p><br>'
       window.scrollBy(0, 100000);
     };
 
@@ -184,8 +185,7 @@ function submit() {
           <tr>
            <td>Cookies are enabled:</td><td>` + navigator.cookieEnabled + `</td>
           </tr>
-         </table>
-         <br>`;
+         </table>`;
         } else if (commands[1] == "location" || commands[1] == "loc") {
           log.innerHTML += `<p style="color: `+ color +`;">Request successful. Retreived localisation data:</p><br>
          <table style="color: `+ color +`;">
@@ -207,8 +207,7 @@ function submit() {
           <tr>
            <td>Currency:</td><td>` + data.currency.name + ` / ` + data.currency.code + `</td>
           </tr>
-          </table>
-          <br>`
+          </table>`
         } else {
           log.innerHTML +=
           '<p style="color: red">Error: unknown information type ('+ commands[1] +'). Please use a valid information type or none.</p><br>';
