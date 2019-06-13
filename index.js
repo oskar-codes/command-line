@@ -15,58 +15,58 @@ function submit() {
       `<p style="color: `+ color +`;">Command list:</p><br>
        <table style="color: ` + color + `;">
          <tr>
-          <td><b>h</b>elp</td><td>shows this help panel</td>
+          <td><b>h</b>elp</td><td>Shows this help panel.</td>
          </tr>
          <tr>
-          <td><b>i</b>nfo</td><td>shows information about this console</td>
+          <td><b>i</b>nfo</td><td>Shows information about this console.</td>
          </tr>
          <tr>
-          <td><b>cl</b>ear</td><td>clears the console</td>
+          <td><b>cl</b>ear</td><td>Clears the console.</td>
          </tr>
          <tr>
-          <td><b>c</b>odepen (pen id) (view: pen,details,full,debug)</td><td>browses to codepen, at the specified pen id, with the specified view. If "new" is entered instead of the pen id, a new pen is created.</td>
+          <td><b>c</b>odepen (pen id) (view: pen,details,full,debug)</td><td>Browses to codepen, at the specified pen id, with the specified view. If "new" is entered instead of the pen id, a new pen is created.</td>
          </tr>
          <tr>
-          <td><b>c</b>odepen<b>u</b>ser [user]</td><td>browses to the specified user's Codepen profile</td>
+          <td><b>c</b>odepen<b>u</b>ser [user]</td><td>Browses to the specified user's Codepen profile.</td>
          </tr>
          <tr>
-          <td><b>c</b>odepen<b>s</b>earch [query]</td><td>searches Codepen for your query</td>
+          <td><b>c</b>odepen<b>s</b>earch [query]</td><td>Searches Codepen for your query.</td>
          </tr>
          <tr>
-          <td>url [url]</td><td>browses to the specified url. This automatically appends https:// if not in url</td>
+          <td>url [url]</td><td>Browses to the specified url.</td>
          </tr>
          <tr>
-          <td>cache [url] (view: full,text,source)</td><td>browses to the cache of the specified url, and on the specified view</td>
+          <td>cache [url] (view: full,text,source)</td><td>Browses to the cache of the specified url, and on the specified view.</td>
          </tr>
          <tr>
-          <td><b>e</b>mbed [url]</td><td>Browses to the embed.ly page of the specified url</td>
+          <td><b>e</b>mbed [url]</td><td>Browses to the embed.ly page of the specified url.</td>
          </tr>
          <tr>
-          <td><b>cli</b>ent</td><td>Displays information about the client</td>
+          <td><b>cli</b>ent (type: device, location)</td><td>Displays a specific type of information about the client. By default, the information type is device.</td>
          </tr>
          <tr>
-          <td><b>urli</b>nfo [url]</td><td>gets info about the specified url. /!\\ Not stable /!\\</td>
+          <td><b>urli</b>nfo [url]</td><td>Gets information about the specified url. /!\\ Not stable /!\\</td>
          </tr>
          <tr>
-          <td><b>b</b>ase<b>64</b></td><td>encodes a file using base64 encoding, and opens it</td>
+          <td><b>b</b>ase<b>64</b></td><td>Encodes a file using base64 encoding, and opens it.</td>
          </tr>
          <tr>
-          <td><b>g</b>oogle (query)</td><td>searches Google for your query</td>
+          <td><b>g</b>oogle (query)</td><td>Searches Google for your query.</td>
          </tr>
          <tr>
-          <td><b>y</b>outube (query)</td><td>searches YouTube for your query</td>
+          <td><b>y</b>outube (query)</td><td>Searches YouTube for your query.</td>
          </tr>
          <tr>
-          <td><b>g</b>it<b>h</b>ub (query)</td><td>searches Github for your query</td>
+          <td><b>g</b>it<b>h</b>ub (query)</td><td>Searches Github for your query.</td>
          </tr>
          <tr>
-          <td><b>p</b>rint [text]</td><td>prints text to the console</td>
+          <td><b>p</b>rint [text]</td><td>Prints text to the console.</td>
          </tr>
          <tr>
-          <td><b>col</b>or (value)</td><td>sets the color of the console's text, or resets it if no color is specified</td>
+          <td><b>col</b>or (value)</td><td>Sets the color of the console's text, or resets it if no color is specified.</td>
          </tr>
          <tr>
-          <td><b>j</b>ava<b>s</b>cript (<b>nor</b>eturn) [code]</td><td>executes some JavaScript code. By default, the return value of the code is printed to the console, but that can be prevented by adding noreturn as the first parameter of the command</td>
+          <td><b>j</b>ava<b>s</b>cript (<b>nor</b>eturn) [code]</td><td>Executes some JavaScript code. By default, the return value of the code is printed to the console, but that can be prevented by adding noreturn as the first parameter of the command.</td>
          </tr>
        </table>
       `
@@ -157,8 +157,8 @@ function submit() {
     request.onreadystatechange = function () {
       if (this.readyState === 4) {
         var data = JSON.parse(this.responseText)
-        if (commands[1] == "global" || commands[1] == "g" || !commands[1]) {
-          log.innerHTML += `<p style="color: `+ color +`;">Request successful. Retreived global data:</p><br>
+        if (commands[1] == "device" || commands[1] == "dev" || !commands[1]) {
+          log.innerHTML += `<p style="color: `+ color +`;">Request successful. Retreived device data:</p><br>
          <table style="color: `+ color +`;">
           <tr>
            <td>IP adress:</td><td>` + data.ip + `</td>
@@ -349,7 +349,7 @@ function formatUrl(url){
 }
 
 function getUrlInfo(input_url) {
-  $.get( "https://embedapi.com/api/embed", { "url" : "https://youtube.com/", "key" : "mRWoAB6R2TUGp3zp4nSLOi63FDCkd7OJduTe9aPR" }, function( data ) { var rdata = data } );
+  $.get( "https://embedapi.com/api/embed", { "url" : input_url, "key" : "mRWoAB6R2TUGp3zp4nSLOi63FDCkd7OJduTe9aPR" }, function( data ) { var rdata = data } );
   return rdata;
 }
 
