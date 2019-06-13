@@ -1,4 +1,5 @@
 var input = document.querySelector("#input");
+var cursor = document.querySelector("#cursor");
 var log = document.querySelector(".log");
 var color = "#33ff11";
 log.innerHTML =
@@ -249,29 +250,25 @@ function submit() {
   } else if (commands[0] == "config" || commands[0] == "conf") {
     if (commands[1]) {
       var parameters2 = command.substr(command.indexOf(commands[1]) + 2);
-      if (commands[2] == "color" || commands[2] == "col") {
+      if (commands[1] == "color" || commands[1] == "col") {
         if (parameters[2]) {
           color = parameters2;
         } else {
           color = "#33ff11"
         }
-      } else if (commands[2] == "bgcolor" || commands[2] == "bgcolor" || commands[2] == "bg") {
+      } else if (commands[1] == "bgcolor" || commands[1] == "bgcolor" || commands[1] == "bg") {
         if (parameters[2]) {
           log.style.backgroundColor = parameters2;
           input.style.backgroundColor = parameters2;
+          cursor.style.backgroundColor = parameters2;
           document.body.style.backgroundColor = parameters2;
         } else {
           log.style.backgroundColor = "#000";
           input.style.backgroundColor = "#000";
+          cursor.style.backgroundColor = "#000";
           document.body.style.backgroundColor = "#000";
         }
       }
-      log.innerHTML +=
-        '<p style="color: ' +
-        color +
-        '">Color successfully set to ' +
-        color +
-        ".</p><br>";
     } else {
       log.innerHTML +=
         '<p style="color: ' + color + '">Error: no setting specified.</p><br>';
