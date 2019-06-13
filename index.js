@@ -1,6 +1,6 @@
 var input = document.querySelector("#input");
 var log = document.querySelector(".log");
-var color = "#22ff11";
+var color = "#33ff11";
 log.innerHTML =
   "<p>Welcome to Webline ! Start by executing the help command.</p><br>";
 
@@ -64,7 +64,7 @@ function submit() {
           <td><b>p</b>rint [text]</td><td>Prints text to the console.</td>
          </tr>
          <tr>
-          <td><b>col</b>or (value)</td><td>Sets the color of the console's text, or resets it if no color is specified.</td>
+          <td><b>conf</b>ig [setting: color, bgcolor] (value)</td><td>Modifies a certain setting of the terminal. If no value is specified, the setting is reset to it's default value.</td>
          </tr>
          <tr>
           <td><b>j</b>ava<b>s</b>cript (<b>nor</b>eturn) [code]</td><td>Executes some JavaScript code. By default, the return value of the code is printed to the console, but that can be prevented by adding noreturn as the first parameter of the command.</td>
@@ -92,7 +92,7 @@ function submit() {
       window.open("https://codepen.io/" + parameters + "/");
     } else {
       log.innerHTML +=
-        "<p style='color: red'>Error: No user specified.</p><br>";
+        "<p style='color: red'>Error: no user specified.</p><br>";
     }
   } else if (commands[0] == "codepensearch" || commands[0] == "cs") {
     if (commands[1]) {
@@ -103,14 +103,14 @@ function submit() {
       );
     } else {
       log.innerHTML +=
-        "<p style='color: red'>Error: No query specified.</p><br>";
+        "<p style='color: red'>Error: no query specified.</p><br>";
     }
   } else if (commands[0] == "url") {
     if (commands[1]) {
       window.open(encodeURI(formatUrl(commands[1])));
     } else {
       log.innerHTML +=
-        "<p style='color: red'>Error: No url specified.</p><br>";
+        "<p style='color: red'>Error: no url specified.</p><br>";
     }
   } else if (commands[0] == "cache") {
     if (commands[1]) {
@@ -125,21 +125,21 @@ function submit() {
       }
     } else {
       log.innerHTML +=
-        "<p style='color: red'>Error: No url specified.</p><br>";
+        "<p style='color: red'>Error: no url specified.</p><br>";
     }
   } else if (commands[0] == "urlinfo" || commands[0] == "urli") {
     if (commands[1]) {
       log.innerHTML += '<p style="color: ' + color + '">Information about ' + encodeURI(formatUrl(commands[1])) + '<br>' + getUrlInfo(commands[1]) + '</p><br>'
     } else {
       log.innerHTML +=
-        "<p style='color: red'>Error: No url specified.</p><br>";
+        "<p style='color: red'>Error: no url specified.</p><br>";
     }
   } else if (commands[0] == "embed" || commands[0] == "e") {
     if (commands[1]) {
       window.open("https://embed.ly/code?url=" + encodeURI(formatUrl(commands[1])));
     } else {
       log.innerHTML +=
-        "<p style='color: red'>Error: No url specified.</p><br>";      
+        "<p style='color: red'>Error: no url specified.</p><br>";      
     }
   } else if (commands[0] == "client" || commands[0] == "cli") {
     log.innerHTML += '<p style="color: '+ color +';">Requesting data...</p><br>'
@@ -246,9 +246,26 @@ function submit() {
       log.innerHTML +=
         '<p style="color: red">Error: no text to print.</p><br>';
     }
-  } else if (commands[0] == "color" || commands[0] == "col") {
+  } else if (commands[0] == "config" || commands[0] == "conf") {
     if (commands[1]) {
-      color = parameters;
+      var parameters2 = command.substr(command.indexOf(commands[1]) + 2);
+      if (commands[2] == "color" || commands[2] == "col") {
+        if (parameters[2]) {
+          color = parameters2;
+        } else {
+          color = "#33ff11"
+        }
+      } else if (commands[2] == "bgcolor" || commands[2] == "bgcolor" || commands[2] == "bg") {
+        if (parameters[2]) {
+          log.style.backgroundColor = parameters2;
+          input.style.backgroundColor = parameters2;
+          document.body.style.backgroundColor = parameters2;
+        } else {
+          log.style.backgroundColor = "#000";
+          input.style.backgroundColor = "#000";
+          document.body.style.backgroundColor = "#000";
+        }
+      }
       log.innerHTML +=
         '<p style="color: ' +
         color +
@@ -256,9 +273,8 @@ function submit() {
         color +
         ".</p><br>";
     } else {
-      color = "#22ff11";
       log.innerHTML +=
-        '<p style="color: ' + color + '">Color successfully reset.</p><br>';
+        '<p style="color: ' + color + '">Error: no setting specified.</p><br>';
     }
   } else if (commands[0] == "js" || commands[0] == "javascript") {
     var syntaxError = false;
@@ -282,7 +298,7 @@ function submit() {
           }
         } else {
           log.innerHTML +=
-          '<p style="color: red">Error: No JavaScript code to execute.</p><br>';
+          '<p style="color: red">Error: no JavaScript code to execute.</p><br>';
         }
       } else {
         try {
@@ -309,11 +325,11 @@ function submit() {
       }
     } else {
       log.innerHTML +=
-      '<p style="color: red">Error: No JavaScript code to execute.</p><br>';
+      '<p style="color: red">Error: no JavaScript code to execute.</p><br>';
     }
   } else {
     log.innerHTML +=
-      '<p style="color: red">Error: Unknown command ('+ command +'). Type help for command reference.</p><br>';
+      '<p style="color: red">Error: unknown command ('+ command +'). Type help for command reference.</p><br>';
   }
   }
   window.scrollBy(0, 100000);
