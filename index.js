@@ -249,7 +249,7 @@ function submit() {
     }
   } else if (commands[0] == "config" || commands[0] == "conf") {
     if (commands[1]) {
-      var parameters2 = command.substr(command.indexOf(commands[1]) + 2);
+      var parameters2 = command.substr(command.indexOf(commands[1]) + commands[1].length);
       if (commands[1] == "color" || commands[1] == "col") {
         if (parameters[2]) {
           color = parameters2;
@@ -278,7 +278,7 @@ function submit() {
     if (commands[1]) {
       if (commands[1] == "noreturn" || commands[1] == "nr" || commands[1] == "nor") {
         if (commands[2]) {
-          var parameters2 = command.substr(command.indexOf(commands[1]) + 2);
+          var parameters2 = command.substr(command.indexOf(commands[1]) + commands[1].length);
           try {
             eval(parameters2);
           } catch (e) {
