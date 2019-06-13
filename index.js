@@ -1,4 +1,5 @@
 var input = document.querySelector("#input");
+var input_container = document.querySelector("#input-container");
 var cursor = document.querySelector("#cursor");
 var log = document.querySelector(".log");
 var color = "#33ff11";
@@ -260,11 +261,13 @@ function submit() {
         if (parameters[2]) {
           log.style.backgroundColor = parameters2;
           input.style.backgroundColor = parameters2;
+          input_container.style.backgroundColor = parameters2;
           cursor.style.backgroundColor = parameters2;
           document.body.style.backgroundColor = parameters2;
         } else {
           log.style.backgroundColor = "#000";
           input.style.backgroundColor = "#000";
+          input_container.style.backgroundColor = "#000";
           cursor.style.backgroundColor = "#000";
           document.body.style.backgroundColor = "#000";
         }
