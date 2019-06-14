@@ -4,7 +4,7 @@ var cursor = document.querySelector("#cursor");
 var log = document.querySelector(".log");
 var color = "#33ff11";
 log.innerHTML =
-  "<p>Welcome to Webline! Start by executing the help command.</p><br>";
+  "<p>Welcome to Webline ! Start by executing the help command.</p><br>";
 
 function submit() {
   var command = input.value;
@@ -12,7 +12,7 @@ function submit() {
   var commands = strToArr(command);
   var parameters = command.substr(command.indexOf(" ") + 1);
   if (commands[0] != "") {
-  log.innerHTML += "<p style='color: "+ color +";'>>   " + command + "</p><br>"
+  log.innerHTML += "<p style='color: "+ color +";'>>   " + escape(command) + "</p><br>"
   if (commands[0] == "help" || commands[0] == "h") {
     log.innerHTML +=
       `<p style="color: `+ color +`;">Command list:</p><br>
@@ -389,6 +389,10 @@ function isColor(strColor){
 
 function noSpaces(str) {
   return str.replace(/\s/g, '');
+}
+
+function escape(str) {
+ return str.replace(/"/g, '\\\"')
 }
 
 function formatUrl(url){
