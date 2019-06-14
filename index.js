@@ -4,7 +4,7 @@ var cursor = document.querySelector("#cursor");
 var log = document.querySelector(".log");
 var color = "#33ff11";
 log.innerHTML =
-  "<p>Welcome to Webline! Start by executing the help command.</p><br>";
+  "<p>Welcome to Webline ! Start by executing the help command.</p><br>";
 
 function submit() {
   var command = input.value;
@@ -377,7 +377,13 @@ function toDataURL(src, callback) {
 function isColor(strColor){
   var s = new Option().style;
   s.color = strColor;
-  return s.color == strColor;
+  var test1 = s.color == strColor;
+  var test2 = /^#[0-9A-F]{6}$/i.test(strColor);
+  if(test1 == true || test2 == true){
+    return true;
+  } else{
+    return false;
+  }
 }
 
 function formatUrl(url){
