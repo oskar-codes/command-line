@@ -4,7 +4,7 @@ var cursor = document.querySelector("#cursor");
 var log = document.querySelector(".log");
 var color = "#33ff11";
 log.innerHTML =
-  "<p>Welcome to Webline! Start by executing the help command.</p><br>";
+  "<p>Welcome to Webline! Start by executing the help command</p><br>";
 
 function submit() {
   var command = input.value;
@@ -252,11 +252,15 @@ function submit() {
       }
       if (commands[1] == "color" || commands[1] == "col") {
         if (commands[2]) {
-          color = parameters2;
-          input.style.color = parameters2;
-          input.style.caretColor = parameters2;
-          cursor.style.color = parameters2;
-          log.innerHTML += '<p style="color: '+ color +';">Text color set to '+ parameters2 +'.</p><br>';
+          if (isColor(parameters2)) {
+            color = parameters2;
+            input.style.color = parameters2;
+            input.style.caretColor = parameters2;
+            cursor.style.color = parameters2;
+            log.innerHTML += '<p style="color: '+ color +';">Text color set to '+ parameters2 +'.</p><br>';
+          } else {
+            log.innerHTML += '<p style="color: red;">Error: '+ parameters2 +' is not a valid color.</p><br>';
+          }
         } else {
           color = "#33ff11";
           input.style.color = "#33ff11";
@@ -266,12 +270,16 @@ function submit() {
         }
       } else if (commands[1] == "bgcolor" || commands[1] == "bgcol" || commands[1] == "bg") {
         if (commands[2]) {
-          document.body.style.backgroundColor = parameters2;
-          log.style.backgroundColor = parameters2;
-          input.style.backgroundColor = parameters2;
-          input_container.style.backgroundColor = parameters2;
-          cursor.style.backgroundColor = parameters2;
-          log.innerHTML += '<p style="color: '+ color +';">Background color set to '+ parameters2 +'.</p><br>';
+          if (isColor(parameters2)) {
+            document.body.style.backgroundColor = parameters2;
+            log.style.backgroundColor = parameters2;
+            input.style.backgroundColor = parameters2;
+            input_container.style.backgroundColor = parameters2;
+            cursor.style.backgroundColor = parameters2;
+            log.innerHTML += '<p style="color: '+ color +';">Background color set to '+ parameters2 +'.</p><br>';
+          } else {
+            log.innerHTML += '<p style="color: red;">Error: '+ parameters2 +' is not a valid color.</p><br>';
+          }
         } else {
           document.body.style.backgroundColor = "#000";
           log.style.backgroundColor = "#000";
@@ -363,6 +371,12 @@ function toDataURL(src, callback) {
   request.responseType = "blob";
   request.open("GET", src, true);
   request.send();
+}
+
+function isColor(strColor){
+  var s = new Option().style;
+  s.color = strColor;
+  return s.color == strColor;
 }
 
 function formatUrl(url){
