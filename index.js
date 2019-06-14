@@ -340,6 +340,9 @@ function submit() {
           '">JavaScript code successfully executed.</p><br>';
         }
       }
+    } else if (commands[0] == "webline") {
+      log.innerHTML += '<iframe frameborder="0" width="560" height="315" src="https://biteable.com/watch/embed/webline-2296735" allowfullscreen="true" allow="autoplay"></iframe><p><a href="https://biteable.com/watch/webline-2296735">Webline</a> on <a href="https://biteable.com">Biteable</a>.</p><br>';
+    }
     } else {
       log.innerHTML +=
       '<p style="color: red">Error: no JavaScript code to execute.</p><br>';
