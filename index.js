@@ -63,7 +63,7 @@ function submit() {
           <td><b>p</b>rint [text]</td><td>Prints text to the console.</td>
          </tr>
          <tr>
-          <td><b>conf</b>ig [setting: color, bgcolor] (value)</td><td>Modifies a certain setting of the terminal. If no value is specified, the setting is reset to it's default value.</td>
+          <td><b>conf</b>ig [setting: color, bgcolor] (value)</td><td>Modifies a certain setting of the terminal. If no value is specified, the setting is reset to it's default value. Color values may only be HEX or HTML color names.</td>
          </tr>
          <tr>
           <td><b>j</b>ava<b>s</b>cript (<b>nor</b>eturn) [code]</td><td>Executes some JavaScript code. By default, the return value of the code is printed to the console, but that can be prevented by adding noreturn as the first parameter of the command.</td>
