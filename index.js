@@ -4,7 +4,7 @@ var cursor = document.querySelector("#cursor");
 var log = document.querySelector(".log");
 var color = "#33ff11";
 log.innerHTML =
-  "<p>Welcome to Webline! Start by executing the help command</p><br>";
+  "<p>Welcome to Webline! Start by executing the help command.</p><br>";
 
 function submit() {
   var command = input.value;
@@ -249,6 +249,7 @@ function submit() {
     if (commands[1]) {
       if (commands[2]) {
         var parameters2 = command.substr(command.indexOf(commands[1]) + commands[1].length);
+        alert(parameters2 + ": " + isColor(parameters2))
       }
       if (commands[1] == "color" || commands[1] == "col") {
         if (commands[2]) {
