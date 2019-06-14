@@ -48,9 +48,6 @@ function submit() {
           <td><b>cli</b>ent (type: device, location)</td><td>Displays a specific type of information about the client. By default, the information type is device.</td>
          </tr>
          <tr>
-          <td><b>urli</b>nfo [url]</td><td>Gets information about the specified url. /!\\ Not stable /!\\</td>
-         </tr>
-         <tr>
           <td><b>b</b>ase<b>64</b></td><td>Encodes a file using base64 encoding, and opens it.</td>
          </tr>
          <tr>
@@ -129,13 +126,13 @@ function submit() {
       log.innerHTML +=
         "<p style='color: red'>Error: no url specified.</p><br>";
     }
-  } else if (commands[0] == "urlinfo" || commands[0] == "urli") {
+  /*} else if (commands[0] == "urlinfo" || commands[0] == "urli") {
     if (commands[1]) {
       log.innerHTML += '<p style="color: ' + color + '">Information about ' + encodeURI(formatUrl(commands[1])) + '<br>' + getUrlInfo(commands[1]) + '</p><br>'
     } else {
       log.innerHTML +=
         "<p style='color: red'>Error: no url specified.</p><br>";
-    }
+    }*/
   } else if (commands[0] == "embed" || commands[0] == "e") {
     if (commands[1]) {
       window.open("https://embed.ly/code?url=" + encodeURI(formatUrl(commands[1])));
