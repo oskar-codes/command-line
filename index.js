@@ -4,7 +4,7 @@ var cursor = document.querySelector("#cursor");
 var log = document.querySelector(".log");
 var color = "#33ff11";
 log.innerHTML =
-  "<p>Welcome to Webline ! Start by executing the help command.</p><br>";
+  "<p>Welcome to Webline! Start by executing the help command.</p><br>";
 
 function submit() {
   var command = input.value;
@@ -249,18 +249,18 @@ function submit() {
     if (commands[1]) {
       if (commands[2]) {
         var parameters2 = command.substr(command.indexOf(commands[1]) + commands[1].length);
-        alert(parameters2 + ": " + isColor(parameters2))
+        alert(noSpaces(parameters2) + ": " + isColor(noSpaces(parameters2)))
       }
       if (commands[1] == "color" || commands[1] == "col") {
         if (commands[2]) {
-          if (isColor(parameters2)) {
-            color = parameters2;
-            input.style.color = parameters2;
-            input.style.caretColor = parameters2;
-            cursor.style.color = parameters2;
-            log.innerHTML += '<p style="color: '+ color +';">Text color set to '+ parameters2 +'.</p><br>';
+          if (isColor(noSpaces(parameters2))) {
+            color = noSpaces(parameters2);
+            input.style.color = noSpaces(parameters2);
+            input.style.caretColor = noSpaces(parameters2);
+            cursor.style.color = noSpaces(parameters2);
+            log.innerHTML += '<p style="color: '+ color +';">Text color set to '+ noSpaces(parameters2) +'.</p><br>';
           } else {
-            log.innerHTML += '<p style="color: red;">Error: '+ parameters2 +' is not a valid color.</p><br>';
+            log.innerHTML += '<p style="color: red;">Error: '+ noSpaces(parameters2) +' is not a valid color.</p><br>';
           }
         } else {
           color = "#33ff11";
@@ -271,15 +271,15 @@ function submit() {
         }
       } else if (commands[1] == "bgcolor" || commands[1] == "bgcol" || commands[1] == "bg") {
         if (commands[2]) {
-          if (isColor(parameters2)) {
-            document.body.style.backgroundColor = parameters2;
-            log.style.backgroundColor = parameters2;
-            input.style.backgroundColor = parameters2;
-            input_container.style.backgroundColor = parameters2;
-            cursor.style.backgroundColor = parameters2;
-            log.innerHTML += '<p style="color: '+ color +';">Background color set to '+ parameters2 +'.</p><br>';
+          if (isColor(noSpaces(parameters2))) {
+            document.body.style.backgroundColor = noSpaces(parameters2);
+            log.style.backgroundColor = noSpaces(parameters2);
+            input.style.backgroundColor = noSpaces(parameters2);
+            input_container.style.backgroundColor = noSpaces(parameters2);
+            cursor.style.backgroundColor = noSpaces(parameters2);
+            log.innerHTML += '<p style="color: '+ color +';">Background color set to '+ noSpaces(parameters2) +'.</p><br>';
           } else {
-            log.innerHTML += '<p style="color: red;">Error: '+ parameters2 +' is not a valid color.</p><br>';
+            log.innerHTML += '<p style="color: red;">Error: '+ noSpaces(parameters2) +' is not a valid color.</p><br>';
           }
         } else {
           document.body.style.backgroundColor = "#000";
@@ -384,6 +384,10 @@ function isColor(strColor){
   } else{
     return false;
   }
+}
+
+function noSpaces(str) {
+  return str.replace(/\s/g, '');
 }
 
 function formatUrl(url){
