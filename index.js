@@ -413,8 +413,11 @@ function getUrlInfo(input_url) {
 $("#file").change( function(event) {
   var path = URL.createObjectURL(event.target.files[0]);
   toDataURL(path, function(dataURL) {
-    alert(dataURL.length + " / 524288");
-    log.innerHTML += "<p style='color: "+ color +";'>File successfully converted. Data: </p><br><input style='border: 1px solid "+ color +"; color: "+ color +"; width: 98%;' type='text' value='"+ dataURL +"'></input><br>"
+    if (dataURL.length < 524288) {
+      log.innerHTML += "<p style='color: "+ color +";'>File successfully converted. Data: </p><br><input style='border: 1px solid "+ color +"; color: "+ color +"; width: 98%;' type='text' value='"+ dataURL +"'></input><br>";
+    } else {
+      log.innerHTML += "<p style='color: "+ color +";'>File successfully converted. The converted string is to large to display. Please use instead the url of the opened window.</p><br>";
+    }
     window.open(dataURL);
   });
 })
