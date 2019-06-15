@@ -4,7 +4,7 @@ var cursor = document.querySelector("#cursor");
 var log = document.querySelector(".log");
 var color = "#33ff11";
 log.innerHTML =
-  "<p>Welcome to Webline ! Start by executing the help command.</p><br>";
+  "<p>Welcome to Webline! Start by executing the help command.</p><br>";
 
 function submit() {
   var command = input.value;
