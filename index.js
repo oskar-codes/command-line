@@ -3,6 +3,7 @@ var input_container = document.querySelector("#input-container");
 var cursor = document.querySelector("#cursor");
 var log = document.querySelector(".log");
 var color = "#33ff11";
+var bg = "#000000"
 log.innerHTML =
   "<p>Welcome to Webline! Start by executing the help command.</p><br>";
 
@@ -254,10 +255,10 @@ function submit() {
         if (commands[2]) {
           if (isColor(noSpaces(parameters2))) {
             color = noSpaces(parameters2);
-            input.style.color = noSpaces(parameters2);
-            input.style.caretColor = noSpaces(parameters2);
-            cursor.style.color = noSpaces(parameters2);
-            log.innerHTML += '<p style="color: '+ color +';">Text color set to '+ noSpaces(parameters2) +'.</p><br>';
+            input.style.color = color;
+            input.style.caretColor = color;
+            cursor.style.color = color;
+            log.innerHTML += '<p style="color: '+ color +';">Text color set to '+ color +'.</p><br>';
           } else {
             log.innerHTML += '<p style="color: red;">Error: '+ noSpaces(parameters2) +' is not a valid color.</p><br>';
           }
@@ -276,6 +277,7 @@ function submit() {
             input.style.backgroundColor = noSpaces(parameters2);
             input_container.style.backgroundColor = noSpaces(parameters2);
             cursor.style.backgroundColor = noSpaces(parameters2);
+            bg = noSpaces(parameters2);
             log.innerHTML += '<p style="color: '+ color +';">Background color set to '+ noSpaces(parameters2) +'.</p><br>';
           } else {
             log.innerHTML += '<p style="color: red;">Error: '+ noSpaces(parameters2) +' is not a valid color.</p><br>';
@@ -414,7 +416,7 @@ $("#file").change( function(event) {
   var path = URL.createObjectURL(event.target.files[0]);
   toDataURL(path, function(dataURL) {
     if (dataURL.length < 524288) {
-      log.innerHTML += "<p style='color: "+ color +";'>File successfully converted. Data: </p><br><input style='border: 1px solid "+ color +"; color: "+ color +"; width: 98%;' type='text' value='"+ dataURL +"'></input><br>";
+      log.innerHTML += "<p style='color: "+ color +";'>File successfully converted. Data: </p><br><input style='background-color: "+ bg +"; border: 1px solid "+ color +"; color: "+ color +"; width: 98%;' type='text' value='"+ dataURL +"'></input><br>";
     } else {
       log.innerHTML += "<p style='color: "+ color +";'>File successfully converted. The converted string is to large to display. Please use instead the url of the opened window.</p><br>";
     }
